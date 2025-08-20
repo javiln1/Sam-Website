@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Ticket Ecommerce Mentorship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #F5F5DC;
+            background-color: #07204A;
+        }
+
+        /* SECTION 1: HERO SECTION */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            background-color: #07204A;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .headline {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #F5F5DC;
+            letter-spacing: 0.02em;
+        }
+
+        .subheadline {
+            font-size: clamp(0.95rem, 2.1vw, 1.3rem);
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: #F5F5DC;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Mobile-specific font size adjustments */
+        @media (max-width: 640px) {
+            .headline {
+                font-size: 1.75rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .subheadline {
+                font-size: 0.875rem !important;
+                line-height: 1.4 !important;
+            }
+
+            .video-container {
+                max-width: 100%;
+                margin: 0 auto 1.5rem auto;
+                border-radius: 8px;
+            }
+
+            .cta-button {
+                padding: 1.2rem 3rem;
+                font-size: 1.2rem;
+                margin-top: 0.5rem;
+            }
+
+            .video-embed {
+                padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio on mobile */
+            }
+        }
+
+        /* Mobile video container fixes - remove semi-transparent blue background */
+        @media (max-width: 768px) {
+            .video-container {
+                background: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+            
+            .video-embed > div {
+                padding-top: 56.25% !important; /* Maintain aspect ratio */
+            }
+        }
+
+        /* Mobile mission section adjustments */
+        @media (max-width: 768px) {
+            .mission-section {
+                padding: 60px 1.5rem;
+            }
+            
+            .mission-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                line-height: 1.4;
+                margin-bottom: 1.5rem;
+            }
+            
+            .mission-text {
+                font-size: clamp(1rem, 4vw, 1.1rem);
+                line-height: 1.7;
+                margin-bottom: 16px;
+                max-width: 100%;
+            }
+
+            /* Mobile highlight adjustments */
+            .highlight-gold,
+            .highlight-navy,
+            .highlight-cream {
+                padding: 3px 5px;
+                border-radius: 3px;
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+
+            /* Mobile about section spacing */
+            .about-text {
+                margin-bottom: 1.25rem;
+            }
+        }
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 6rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background-color: #07204A;
+        }
+
+        .video-embed {
+            width: 100%;
+            position: relative;
+        }
+
+        .video-embed > div {
+            width: 100% !important;
+            position: relative !important;
+            padding-top: 56.25% !important; /* 16:9 aspect ratio */
+        }
+
+        .video-embed > div > div {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 12px;
+        }
+
+        .cta-button {
+            background-color: #CFAF6E;
+            color: #07204A;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background-color: #D9B97A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(207, 175, 110, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* SECTION 2: MISSION SECTION */
+        .mission-section {
+            background-color: #F5F5DC;
+            padding: 80px 2rem;
+            text-align: left;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #07204A;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .mission-text {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: 400;
+            line-height: 1.8;
+            color: #07204A;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+        }
+
+        .mission-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlight styles for key phrases */
+        .highlight-gold {
+            background-color: #D9B96E;
+            color: #07204A;
+            padding: 4px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline;
+        }
+
+        .highlight-navy {
+            background-color: #07204A;
+            color: #F5F5DC;
+            padding: 4px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline;
+        }
+
+        .highlight-cream {
+            background-color: #F5E9C8;
+            color: #07204A;
+            padding: 4px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline;
+        }
+
+        /* SECTION 3: ABOUT ASON SECTION */
+        .about-section {
+            background-color: #07204A;
+            padding: 80px 2rem;
+            color: #F5F5DC;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-content {
+            padding-right: 2rem;
+        }
+
+        .about-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #F5F5DC;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-text {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 400;
+            line-height: 1.7;
+            color: #F5F5DC;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sam-portrait {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sam-portrait:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Timeline Styles */
+        .timeline-container {
+            margin: 4rem 0;
+        }
+
+        .timeline-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #EDE8E1;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #CFAF6E, #D9B97A);
+            z-index: 1;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .timeline-year {
+            background-color: #CFAF6E;
+            color: #07204A;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, #F5F5DC 0%, #F8F8E8 50%, #F5F5DC 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 200px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(7, 32, 74, 0.1);
+        }
+
+        .timeline-milestone {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #07204A;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .timeline-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #07204A;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .about-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-button-secondary {
+            background-color: #CFAF6E;
+            color: #07204A;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
+        }
+
+        .cta-button-secondary:hover {
+            background-color: #D9B97A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(207, 175, 110, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button-secondary:active {
+            transform: translateY(0);
+        }
+
+        /* SECTION 4: PILLARS SECTION */
+        .pillars-section {
+            background-color: #07204A;
+            padding: 80px 2rem;
+            color: #F5F5DC;
+        }
+
+        .pillars-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pillars-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #F5F5DC;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Tablet: 2x2 grid */
+        @media (max-width: 1024px) {
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        /* Mobile: 1 column */
+        @media (max-width: 640px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .pillar-card {
+                padding: 1.5rem;
+            }
+            
+            .pillar-title {
+                font-size: clamp(1.1rem, 4vw, 1.3rem);
+            }
+            
+            .pillar-description {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+                line-height: 1.6;
+            }
+        }
+
+        .pillar-card {
+            background-color: #F5F5DC;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .pillar-number {
+            background-color: #CFAF6E;
+            color: #07204A;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
+        }
+
+        .pillar-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            color: #07204A;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .pillar-description {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 400;
+            line-height: 1.6;
+            color: #07204A;
+            opacity: 0.9;
+        }
+
+        .pillars-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* SECTION 6: STUDENT RESULTS SECTION */
+        .student-results-section {
+            background-color: #F5F5DC;
+            padding: 80px 2rem;
+            color: #07204A;
+        }
+
+        .student-results-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .student-results-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #07204A;
+            text-align: center;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .student-results-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 400;
+            color: #07204A;
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+                .student-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .student-video-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        .student-video-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-embed {
+            width: 100%;
+            position: relative;
+        }
+
+        .video-embed > div {
+            width: 100% !important;
+            position: relative !important;
+            padding-top: 56.25% !important; /* 16:9 aspect ratio */
+        }
+
+        /* CTA Button Styles */
+        .cta-button {
+            background-color: #CFAF6E;
+            color: #07204A;
+            border: none;
+            padding: 1.2rem 3.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background-color: #D9B97A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(207, 175, 110, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .video-embed > div > div {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 12px;
+        }
+
+        /* Student Results Section CSS */
+        .student-results-section {
+            background-color: #F5F5DC;
+            padding: 80px 2rem;
+            color: #07204A;
+        }
+
+        .student-results-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .student-results-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #07204A;
+            text-align: center;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .student-results-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 400;
+            color: #07204A;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.4;
+            opacity: 0.8;
+        }
+
+        .student-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Student Testimonials Section CSS */
+        .student-testimonials-section {
+            background-color: #F5F5DC;
+            padding: 80px 2rem;
+            color: #07204A;
+        }
+
+        .student-testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .student-testimonials-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #07204A;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .student-testimonials-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 400;
+            color: #07204A;
+            margin-bottom: 3rem;
+            line-height: 1.4;
+            opacity: 0.8;
+        }
+
+        .testimonial-video-container {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Picture Testimonials Section CSS */
+        .picture-testimonials-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(7, 32, 74, 0.1);
+        }
+
+        .picture-testimonials-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            color: #07204A;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .picture-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-picture-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-picture-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-picture {
+            width: 100%;
+            height: 350px;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Responsive breakpoints for picture testimonials */
+        @media (max-width: 1024px) {
+            .picture-testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            .testimonial-picture-card {
+                max-width: 350px;
+            }
+            .testimonial-picture {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .picture-testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            .testimonial-picture-card {
+                max-width: 300px;
+            }
+            .testimonial-picture {
+                height: 250px;
+            }
+            .picture-testimonials-section {
+                margin-top: 3rem;
+                padding-top: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .picture-testimonials-grid {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1.5rem;
+            }
+            .testimonial-picture-card {
+                max-width: 100%;
+            }
+            .testimonial-picture {
+                height: 200px;
+            }
+        }
+
+        .testimonial-video-container:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Final CTA Section CSS */
+        .final-cta-section {
+            background-color: #07204A;
+            padding: 80px 2rem;
+            color: #F5F5DC;
+            text-align: center;
+        }
+
+        .final-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #F5F5DC;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .final-cta-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 400;
+            color: #F5F5DC;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* Responsive breakpoints for student videos */
+        @media (max-width: 1024px) {
+            .student-videos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                max-width: 600px;
+            }
+            .student-video-card {
+                max-width: 280px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .student-videos-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                max-width: 100%;
+            }
+            .student-video-card {
+                max-width: 100%;
+            }
+        }
+
+        /* Mobile: 1 per row */
+        @media (max-width: 640px) {
+            .student-results-section {
+                padding: 60px 1.5rem;
+            }
+            
+            .student-results-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                margin-bottom: 0.75rem;
+            }
+            
+            .student-results-subtitle {
+                font-size: clamp(0.9rem, 4vw, 1rem);
+                margin-bottom: 2rem;
+            }
+            
+            .student-videos-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+                    .student-video-card {
+            border-radius: 8px;
+        }
+        
+
+    }
+
+        /* SECTION 5: STUDENT RESULTS SECTION */
+        .results-section {
+            background-color: #F5F5DC;
+            padding: 80px 2rem;
+            color: #07204A;
+        }
+
+        .results-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .results-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #07204A;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #E5E5E5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 2px dashed #CCC;
+        }
+
+        .testimonial-name {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: 600;
+            color: #07204A;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .testimonial-quote {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 400;
+            line-height: 1.6;
+            color: #3B2F24;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Full-Screen Overlay Styles */
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* PC Version - Completely Fullscreen */
+        @media (min-width: 769px) {
+            .overlay {
+                background-color: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+            }
+            
+            .overlay-content {
+                padding: 0;
+            }
+            
+            .typeform-container {
+                width: 100vw;
+                height: 100vh;
+                max-width: none;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .typeform-embed {
+                width: 100vw;
+                height: 100vh;
+                min-height: 100vh;
+                border-radius: 0;
+            }
+        }
+
+        .overlay-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .overlay-header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1001;
+            padding: 1.5rem;
+        }
+
+        /* PC Version - Better close button positioning for fullscreen */
+        @media (min-width: 769px) {
+            .overlay-header {
+                padding: 2rem;
+            }
+            
+            .close-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+        }
+
+        .close-button {
+            background-color: rgba(7, 32, 74, 0.9);
+            border: 2px solid #CFAF6E;
+            color: #F5F5DC;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .close-button:hover {
+            background-color: #CFAF6E;
+            color: #07204A;
+            transform: scale(1.1);
+        }
+
+        .typeform-container {
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .typeform-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+            min-height: 600px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+            }
+            to { 
+                opacity: 1; 
+            }
+        }
+
+        @keyframes fadeOut {
+            from { 
+                opacity: 1; 
+            }
+            to { 
+                opacity: 0; 
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 1rem;
+                min-height: 100vh;
+            }
+
+            .overlay-content {
+                padding: 1rem;
+            }
+
+            .overlay-header {
+                padding: 1rem;
+            }
+
+            .close-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .typeform-container {
+                border-radius: 8px;
+            }
+
+            .typeform-embed {
+                min-height: 500px;
+            }
+
+            .headline {
+                font-size: clamp(2rem, 8vw, 3rem);
+                margin-bottom: 1rem;
+            }
+
+            .subheadline {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+                margin-bottom: 2rem;
+            }
+
+            .video-container {
+                margin-bottom: 2rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 2.5rem;
+                font-size: 1.1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .overlay-content {
+                padding: 1rem;
+            }
+
+            .overlay-header {
+                padding: 1rem;
+            }
+
+            .close-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            /* Mission section mobile adjustments */
+            .mission-section {
+                padding: 60px 1.5rem;
+            }
+
+            .mission-title {
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .mission-text {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 0.5rem;
+            }
+
+            .overlay-content {
+                padding: 0.5rem;
+            }
+
+            .overlay-header {
+                padding: 0.75rem;
+            }
+
+            .close-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .typeform-embed {
+                min-height: 450px;
+            }
+
+            .headline {
+                font-size: clamp(1.75rem, 10vw, 2.5rem);
+            }
+
+            .subheadline {
+                font-size: clamp(0.9rem, 5vw, 1.1rem);
+            }
+
+            .cta-button {
+                padding: 0.75rem 2rem;
+                font-size: 1rem;
+            }
+
+            .mission-section {
+                padding: 50px 1rem;
+            }
+
+            .mission-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+            }
+
+            .mission-text {
+                font-size: clamp(0.95rem, 5vw, 1.1rem);
+            }
+
+            /* About section mobile adjustments */
+            .about-section {
+                padding: 50px 1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .about-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .about-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+            }
+
+            .about-text {
+                font-size: clamp(0.95rem, 5vw, 1.1rem);
+            }
+
+            .image-placeholder {
+                max-width: 300px;
+            }
+
+            /* Timeline mobile adjustments */
+            .timeline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .timeline-item {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .timeline-content {
+                max-width: 100%;
+            }
+
+            .timeline-title {
+                font-size: clamp(1.25rem, 6vw, 1.75rem);
+                margin-bottom: 2rem;
+            }
+
+            /* Pillars section mobile adjustments */
+            .pillars-section {
+                padding: 50px 1rem;
+            }
+
+            .pillars-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+                margin-bottom: 2rem;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .pillar-card {
+                padding: 1.5rem;
+            }
+
+            .pillar-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .pillar-title {
+                font-size: clamp(1.1rem, 4vw, 1.3rem);
+            }
+
+            .pillar-description {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+            }
+
+            /* Results section mobile adjustments */
+            .results-section {
+                padding: 60px 1rem;
+            }
+
+            .results-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+                margin-bottom: 2rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .testimonial-photo {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 1rem;
+            }
+
+            .testimonial-name {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+            }
+
+            .testimonial-quote {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+            }
+
+            /* Final CTA section mobile adjustments */
+            .final-cta-section {
+                padding: 60px 1rem;
+            }
+
+            .final-cta-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+                margin-bottom: 1rem;
+            }
+
+            .final-cta-subtitle {
+                font-size: clamp(0.9rem, 4vw, 1.1rem);
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SECTION 1: Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <!-- Headline -->
+            <h1 class="headline">THE PLAYBOOK FOR BRANDS THAT OUTLAST THE TRENDS</h1>
+            
+            <!-- Subheadline -->
+            <p class="subheadline">How I've Applied One Proven Process Across Multiple Stores To Generate $7.4M+ In Sales — And How You Can Use It To Build A Brand With Retention, Stability, And Long-Term Growth.</p>
+            
+            <!-- Video Container -->
+            <div class="video-container">
+                <div class="video-embed">
+                    <div id="vidalytics_embed_pUkoYhppBvA6Z4yE" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+                    <script type="text/javascript">
+                    (function (v, i, d, a, l, y, t, c, s) {
+                     y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+                     if (!vsl){vsl=function(u,cb){
+                     if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                     if(s.readyState){s.onreadystatechange=function(){if(s.readyState=="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+                     i.getElementsByTagName("head")[0].appendChild(s);
+                     };};
+                     vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_pUkoYhppBvA6Z4yE', 'https://fast.vidalytics.com/embeds/r1IqWdUo/pUkoYhppBvA6Z4yE/');
+                    </script>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <button class="cta-button" onclick="openOverlay()">Apply Now</button>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Mission Section -->
+    <section class="mission-section">
+        <div class="mission-content">
+            <!-- Mission Title -->
+            <h2 class="mission-title">The difference between a store and a business comes down to one thing: <span class="highlight-navy">staying power</span>.</h2>
+            
+            <!-- Mission Text -->
+            <p class="mission-text">
+                Most people can get lucky with a product.<br>
+                Fewer can turn that product into <span class="highlight-cream">consistent revenue</span>.<br>
+                Almost none can turn it into a <span class="highlight-cream">brand that lasts</span>.
+            </p>
+            
+            <p class="mission-text">
+                That's where my focus has always been.
+            </p>
+            
+            <p class="mission-text">
+                I've used one proven process to generate <span class="highlight-gold">$7.4M+ across multiple stores</span>. Not from chasing trends — but from building with <span class="highlight-cream">retention, stability, and long-term growth</span> in mind.
+            </p>
+            
+            <p class="mission-text">
+                Because in this game, the market doesn't reward whoever gets lucky once. It rewards whoever can <span class="highlight-navy">stay in the game the longest</span>.
+            </p>
+            
+            <p class="mission-text">
+                <span class="highlight-navy">That's the kind of business I build — and the kind you'll learn to build too.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: About Ason Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <!-- Two-Column Layout -->
+            <div class="about-grid">
+                <!-- Left Column: Content -->
+                <div class="about-content">
+                    <h2 class="about-title">Who Is Sam?</h2>
+                    <p class="about-text">
+                        I started out just like most people — broke, lost, and trying to figure out how the hell to escape the 9–5 path that everyone around me said was "the only way."
+                    </p>
+                    
+                    <p class="about-text">
+                        I didn't come from money. I didn't have connections. All I had was a laptop, a drive to win, and the willingness to fail more times than I can count.
+                    </p>
+                    
+                    <p class="about-text">
+                        Through trial, error, and relentless testing, I built ecommerce brands that have now generated over <strong>$7.4M in sales.</strong><br>
+                        But more importantly — I learned how to build real businesses that last, not just stores that come and go.
+                    </p>
+                    
+                    <p class="about-text">
+                        I've been through the failed launches, the sleepless nights, the times when it felt like everything was going against me.<br>
+                        And I've also seen what happens when you push through and follow a system that works: freedom, stability, and the ability to actually build something that lasts.
+                    </p>
+                    
+                    <p class="about-text">
+                        That's why I teach what I do now — because I know what it feels like to be on the other side, and I know what it takes to get out.
+                    </p>
+                </div>
+                
+                <!-- Right Column: Image -->
+                <div class="about-image">
+                    <img src="Photo from iCloud 2L7A7487.JPEG" alt="Sam Jacobs - High-Ticket Ecommerce Mentor and Business Coach" class="sam-portrait">
+                </div>
+            </div>
+            
+            <!-- Timeline Section -->
+            <div class="timeline-container">
+                <h3 class="timeline-title">Journey Highlights</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-milestone">Launched my first store</h4>
+                            <p class="timeline-description">Started from scratch with no money or connections.<br>Just a laptop, a drive to win, and a ton of failed attempts trying to break out of the 9–5 path.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022–2023</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-milestone">Scaled past $100K/month</h4>
+                            <p class="timeline-description">After countless failed launches and sleepless nights, I finally cracked the code.<br>Scaled multiple stores to six figures/month and proved it wasn't luck — it was a repeatable process.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-milestone">Crossed $7.4M in sales</h4>
+                            <p class="timeline-description">Turned short-term wins into brands with real staying power.<br>Built businesses that lasted instead of chasing quick trends.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-milestone">Mentoring 6-figure brand owners</h4>
+                            <p class="timeline-description">Now I teach others the system I wish I had from the start — helping them build freedom, stability, and brands that last.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="about-cta">
+                <button class="cta-button-secondary" onclick="openOverlay()">Continue to Application</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Pillars Section -->
+    <section class="pillars-section">
+        <div class="pillars-container">
+            <!-- Section Title -->
+            <h2 class="pillars-title">The 4 Pillars of Ecom Uprise</h2>
+            
+            <!-- Four Column Grid -->
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">1</div>
+                    <h3 class="pillar-title">Foundations & Systems</h3>
+                    <p class="pillar-description">
+                        A proven blueprint responsible for $7.4M+ in sales. From product research and store setup to ads, backend systems, and retention—master the full process of building a brand that lasts.
+                    </p>
+                </div>
+                
+                <!-- Pillar 2 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">2</div>
+                    <h3 class="pillar-title">Mentorship & Support</h3>
+                    <p class="pillar-description">
+                        You're not left alone with videos. Weekly coaching calls, 1‑on‑1 mentorship, and direct WhatsApp access so you always have guidance when you hit a wall.
+                    </p>
+                </div>
+                
+                <!-- Pillar 3 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">3</div>
+                    <h3 class="pillar-title">Done‑With‑You & Done‑For‑You Shortcuts</h3>
+                    <p class="pillar-description">
+                        Skip years of trial and error. Depending on your package, get pre‑built stores, winning products, supplier connections, ad creatives, and backend automations set up for you.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="pillar-card">
+                    <div class="pillar-number">4</div>
+                    <h3 class="pillar-title">Community & Accountability</h3>
+                    <p class="pillar-description">
+                        A private network of driven operators where you track progress, get feedback, and stay accountable—so you implement, scale, and win.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="pillars-cta">
+                <button class="cta-button" onclick="openOverlay()">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Student Testimonials Section -->
+    <section class="student-testimonials-section">
+        <div class="student-testimonials-container">
+            <!-- Section Title -->
+            <h2 class="student-testimonials-title">Proof</h2>
+            
+            <!-- First Video Testimonial -->
+            <div class="testimonial-video-container">
+                <div class="video-embed">
+                    <div id="vidalytics_embed_e9YigLwP92Yw28ia" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+                    <script type="text/javascript">
+                    (function (v, i, d, a, l, y, t, c, s) {
+                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+                        if (!vsl){vsl=function(u,cb){
+                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+                            i.getElementsByTagName("head")[0].appendChild(s);
+                        };}
+                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_e9YigLwP92Yw28ia', 'https://fast.vidalytics.com/embeds/r1IqWdUo/e9YigLwP92Yw28ia/');
+                    </script>
+                </div>
+            </div>
+
+            <!-- Second Video Testimonial -->
+            <div class="testimonial-video-container">
+                <div class="video-embed">
+                    <div id="vidalytics_embed_9HkNe9IyORZ_2V4l" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+                    <script type="text/javascript">
+                    (function (v, i, d, a, l, y, t, c, s) {
+                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+                        if (!vsl){vsl=function(u,cb){
+                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+                            i.getElementsByTagName("head")[0].appendChild(s);
+                        };}
+                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_9HkNe9IyORZ_2V4l', 'https://fast.vidalytics.com/embeds/r1IqWdUo/9HkNe9IyORZ_2V4l/');
+                    </script>
+                </div>
+            </div>
+
+            <!-- Third Video Testimonial -->
+            <div class="testimonial-video-container">
+                <div class="video-embed">
+                    <div id="vidalytics_embed_KOkXGSdRoW70FvFw" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+                    <script type="text/javascript">
+                    (function (v, i, d, a, l, y, t, c, s) {
+                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+                        if (!vsl){vsl=function(u,cb){
+                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+                            i.getElementsByTagName("head")[0].appendChild(s);
+                        };}
+                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_KOkXGSdRoW70FvFw', 'https://fast.vidalytics.com/embeds/r1IqWdUo/KOkXGSdRoW70FvFw/');
+                    </script>
+                </div>
+            </div>
+
+            <!-- Fourth Video Testimonial -->
+            <div class="testimonial-video-container">
+                <div class="video-embed">
+                    <div id="vidalytics_embed_y4_qLwIULB_E82Qi" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+                    <script type="text/javascript">
+                    (function (v, i, d, a, l, y, t, c, s) {
+                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+                        if (!vsl){vsl=function(u,cb){
+                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+                            i.getElementsByTagName("head")[0].appendChild(s);
+                        };}
+                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_y4_qLwIULB_E82Qi', 'https://fast.vidalytics.com/embeds/r1IqWdUo/y4_qLwIULB_E82Qi/');
+                    </script>
+                </div>
+            </div>
+
+            <!-- Fifth Video Testimonial -->
+            <div class="testimonial-video-container">
+                <div class="video-embed">
+                    <div id="vidalytics_embed_YBYDfTCuJaBfUV5S" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
+                    <script type="text/javascript">
+                    (function (v, i, d, a, l, y, t, c, s) {
+                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+                        if (!vsl){vsl=function(u,cb){
+                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+                            i.getElementsByTagName("head")[0].appendChild(s);
+                        };}
+                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_YBYDfTCuJaBfUV5S', 'https://fast.vidalytics.com/embeds/r1IqWdUo/YBYDfTCuJaBfUV5S/');
+                    </script>
+                </div>
+            </div>
+
+            <!-- Picture Testimonials Section -->
+            <div class="picture-testimonials-section">
+                <div class="picture-testimonials-grid">
+                    <!-- Picture 1 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/34E79E20-86C3-4464-9714-D2D2583431A7.jpg" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 2 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_0384.PNG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 3 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_0511.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 4 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_0528.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 5 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_4510.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 6 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_4880.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 7 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_4881.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 8 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_4882.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 9 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_5020.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 10 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_5512.PNG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 11 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_6074.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 12 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_6552.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 13 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_6708.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 14 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_6709.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 15 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_6886.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 16 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_6965.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 17 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_7760.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 18 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_8375.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 19 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_8463.PNG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 20 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_8464.PNG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 21 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_8465.PNG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 22 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_8471.PNG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 23 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_8519.JPG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                    
+                    <!-- Picture 24 -->
+                    <div class="testimonial-picture-card">
+                        <img src="iCloud Photos from Sam Jacobs/IMG_8638.PNG" alt="Student Testimonial" class="testimonial-picture">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
+        <div class="final-cta-container">
+            <h2 class="final-cta-title">Ready to Build Your Brand That Lasts?</h2>
+            <p class="final-cta-subtitle">Join the Ecom Uprise mentorship and start building a business with real staying power.</p>
+            <button class="cta-button" onclick="openOverlay()">Apply Now</button>
+        </div>
+    </section>
+
+    <!-- Full-Screen Overlay -->
+    <div id="applicationOverlay" class="overlay">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <button class="close-button" onclick="closeOverlay()">&times;</button>
+            </div>
+            <div class="typeform-container">
+                <!-- TYPEFORM EMBED -->
+                <iframe class="typeform-embed"
+                        src="https://form.typeform.com/to/HmnSLn3L"
+                        title="Application Form"
+                        allowfullscreen>
+                </iframe>
+                <!-- END TYPEFORM EMBED -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Overlay functionality
+        function openOverlay() {
+            const overlay = document.getElementById('applicationOverlay');
+            overlay.style.display = 'block';
+            overlay.style.animation = 'fadeIn 0.3s ease';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeOverlay() {
+            const overlay = document.getElementById('applicationOverlay');
+            overlay.style.animation = 'fadeOut 0.3s ease';
+            
+            // Wait for animation to complete before hiding
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }, 300);
+        }
+
+        // Close overlay when clicking outside of it
+        window.onclick = function(event) {
+            const overlay = document.getElementById('applicationOverlay');
+            if (event.target === overlay) {
+                closeOverlay();
+            }
+        }
+
+        // Close overlay with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeOverlay();
+            }
+        });
+    </script>
+</body>
+</html> 
