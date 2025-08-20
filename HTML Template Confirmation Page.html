@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Submitted - {{FOUNDER_NAME}}'s {{PROGRAM_NAME}}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #07204A;
+            color: #F5F5DC;
+            line-height: 1.6;
+        }
+
+        /* Confirmation Container */
+        .confirmation-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #07204A 0%, #0a2a5a 100%);
+        }
+
+        .confirmation-card {
+            background-color: #F5F5DC;
+            color: #07204A;
+            padding: 4rem 3rem;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.6s ease-out;
+        }
+
+        /* Success Icon */
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #CFAF6E;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem auto;
+            color: #07204A;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        /* Typography */
+        .confirmation-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #07204A;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .confirmation-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: #CFAF6E;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .confirmation-text {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #07204A;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        /* Next Steps */
+        .next-steps {
+            background-color: #CFAF6E;
+            color: #07204A;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #07204A;
+        }
+
+        .next-steps ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .next-steps li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .next-steps li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #07204A;
+            font-weight: bold;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background-color: #CFAF6E;
+            color: #07204A;
+            border: none;
+            padding: 1.25rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #D9B97A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(207, 175, 110, 0.4);
+        }
+
+        /* Countdown styling */
+        .countdown-text {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #07204A;
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-weight: 600;
+            color: #CFAF6E;
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .confirmation-container {
+                padding: 1rem;
+            }
+
+            .confirmation-card {
+                padding: 3rem 2rem;
+            }
+
+            .success-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .next-steps {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="confirmation-card">
+            <!-- Success Icon -->
+            <div class="success-icon">✓</div>
+            
+            <!-- Title -->
+            <h1 class="confirmation-title">Application Submitted!</h1>
+            
+            <!-- Subtitle -->
+            <p class="confirmation-subtitle">Thank you for your application!</p>
+            
+            <!-- Main Text -->
+            <p class="confirmation-text">
+                We've received your application and our team will review it carefully. You'll hear from us within 24-48 hours with next steps.
+            </p>
+            
+            <!-- Next Steps -->
+            <div class="next-steps">
+                <h3>What happens next?</h3>
+                <ul>
+                    <li>We'll review your application within 24-48 hours</li>
+                    <li>If selected, you'll receive a calendar invite for a strategy call</li>
+                    <li>During the call, we'll discuss your goals and how we can help</li>
+                    <li>You'll receive our decision and next steps within 48 hours</li>
+                </ul>
+            </div>
+            
+            <!-- CTA Button -->
+            <!-- This button automatically redirects users to the education page after a brief delay. This helps shift the upcoming sales call from an "education call" to a "purchase-ready" call by warming them up with context, value, and authority. -->
+            <button class="cta-button" id="redirectButton">
+                Continue to Education Page
+            </button>
+            
+            <!-- Auto-redirect message -->
+            <p class="countdown-text">
+                Redirecting automatically in <span class="countdown-number" id="countdown">5</span> seconds...
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-redirect functionality
+            let countdown = 5;
+            const countdownElement = document.getElementById('countdown');
+            const redirectButton = document.getElementById('redirectButton');
+            
+            // Update countdown every second
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirect to education page
+                    window.location.href = 'Education Page Template.html';
+                }
+            }, 1000);
+            
+            // Manual redirect button (in case user wants to go immediately)
+            redirectButton.addEventListener('click', () => {
+                clearInterval(countdownInterval);
+                window.location.href = 'Education Page Template.html';
+            });
+        });
+    </script>
+</body>
+</html>
