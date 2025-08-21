@@ -62,25 +62,16 @@
         /* Mobile-specific font size adjustments */
         @media (max-width: 640px) {
             .headline {
-                font-size: 1.75rem !important;
+                font-size: 1.5rem !important; /* Smaller headline for mobile */
                 line-height: 1.2 !important;
+                margin-bottom: 0.5rem !important; /* Minimal margin on mobile */
+                margin-top: 2rem !important; /* Add top padding above headline */
             }
             
             .subheadline {
-                font-size: 0.875rem !important;
-                line-height: 1.4 !important;
-            }
-
-            .video-container {
-                max-width: 100%;
-                margin: 0 auto 1.5rem auto;
-                border-radius: 8px;
-            }
-
-            .cta-button {
-                padding: 1.2rem 3rem;
-                font-size: 1.2rem;
-                margin-top: 0.5rem;
+                font-size: 0.65rem !important; /* Even smaller font size for mobile */
+                line-height: 1.3 !important; /* Tighter line height for mobile */
+                margin-bottom: 2rem !important; /* Add spacing between subheadline and video */
             }
 
             .video-embed {
@@ -93,11 +84,23 @@
             .video-container {
                 background: none !important;
                 box-shadow: none !important;
-                padding: 0 !important;
             }
             
             .video-embed > div {
                 padding-top: 56.25% !important; /* Maintain aspect ratio */
+            }
+            
+            /* Reduce headline and subheadline font sizes on tablets */
+            .headline {
+                font-size: 1.6rem !important; /* Smaller headline for tablets */
+                line-height: 1.2 !important;
+                margin-top: 1.5rem !important; /* Add top padding above headline */
+            }
+            
+            .subheadline {
+                font-size: 0.75rem !important; /* Smaller font size for tablets */
+                line-height: 1.35 !important; /* Tighter line height for tablets */
+                margin-bottom: 1.5rem !important; /* Add spacing between subheadline and video */
             }
         }
 
@@ -179,7 +182,34 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
-            margin-top: 2rem;
+            margin-top: 2rem; /* Desktop spacing - will be overridden on mobile */
+        }
+
+        /* Mobile CTA Button - Positioned right below video */
+        .mobile-cta-button {
+            background-color: #CFAF6E;
+            color: #07204A;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
+            margin: 0 auto;
+            display: none; /* Hidden by default, shown on mobile */
+        }
+
+        .mobile-cta-button:hover {
+            background-color: #D9B97A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(207, 175, 110, 0.4);
+        }
+
+        .mobile-cta-button:active {
+            transform: translateY(0);
         }
 
         .cta-button:hover {
@@ -1389,6 +1419,79 @@
                 margin-bottom: 2rem;
             }
         }
+        
+        /* MOBILE HERO SECTION LAYOUT FIX - max-width: 768px */
+        @media (max-width: 768px) {
+            /* 1) Remove min-height and set to auto */
+            .hero-section {
+                min-height: auto !important;
+                height: auto !important;
+                padding: 1rem 1rem !important;
+            }
+            
+            /* 2) Hide/zero any spacer elements below video */
+            .hero-section .spacer,
+            .hero-section .space,
+            .hero-section .divider,
+            .hero-section .separator {
+                height: 0 !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: none !important;
+            }
+            
+            /* 3) CRITICAL: Override video-container base margin */
+            .video-container {
+                margin: 0 auto 0 auto !important; /* NO bottom margin */
+                padding: 0 !important;
+                max-width: 100% !important;
+                background: none !important;
+                box-shadow: none !important;
+            }
+            
+            /* 4) SHOW MOBILE BUTTON, HIDE DESKTOP BUTTON */
+            .mobile-cta-button {
+                display: block !important; /* Show mobile button */
+                margin: 0 auto !important; /* Center horizontally */
+                margin-top: -6rem !important; /* Large negative margin but not extreme */
+                padding: 1rem 3rem !important;
+                margin-bottom: 12rem !important; /* ULTRA EXTREME padding below button for maximum spacing */
+                position: relative !important; /* Ensure button is clickable */
+                z-index: 10 !important; /* Ensure button is above other elements */
+            }
+            
+            .desktop-cta-button {
+                display: none !important; /* Hide desktop button */
+            }
+            
+            /* 5) Override any parent spacing */
+            .hero-content {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+        
+        /* SMALL MOBILE OPTIMIZATION - max-width: 640px */
+        @media (max-width: 640px) {
+            .hero-section {
+                padding: 0.5rem 1rem !important;
+            }
+            
+            /* Video wrapper: NO bottom margin on small mobile */
+            .video-container {
+                margin: 0 auto 0 auto !important; /* NO bottom margin */
+            }
+            
+            /* Mobile button: MEGA EXTREME NEGATIVE margin to pull button up on small mobile */
+            .mobile-cta-button {
+                margin-top: -7rem !important; /* Large negative margin but not extreme */
+                padding: 1.2rem 3rem !important;
+                margin-bottom: 10rem !important; /* ULTRA EXTREME padding below button for maximum spacing */
+                position: relative !important; /* Ensure button is clickable */
+                z-index: 10 !important; /* Ensure button is above other elements */
+            }
+        }
     </style>
 </head>
 <body>
@@ -1419,8 +1522,11 @@
                 </div>
             </div>
             
-            <!-- CTA Button -->
-            <button class="cta-button" onclick="openOverlay()">Apply Now</button>
+            <!-- MOBILE CTA Button - Positioned right below video -->
+            <button class="mobile-cta-button" onclick="openOverlay()">Apply Now</button>
+            
+            <!-- DESKTOP CTA Button -->
+            <button class="cta-button desktop-cta-button" onclick="openOverlay()">Apply Now</button>
         </div>
     </section>
 
