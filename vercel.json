@@ -3,7 +3,13 @@
     {
       "source": "/free-training",
       "has": [{ "type": "host", "value": "ecomuprise.co" }],
-      "destination": "https://ecromuprise.co",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/free-training",
+      "has": [{ "type": "host", "value": "www.ecomuprise.co" }],
+      "destination": "/",
       "permanent": true
     }
   ]
