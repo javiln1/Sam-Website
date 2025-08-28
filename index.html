@@ -14,12 +14,137 @@
             box-sizing: border-box;
         }
 
+        /* Responsive image sizing for testimonials */
+        .result-img { 
+            max-height: 520px; 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            object-fit: contain;
+            background-color: #f8f8f8;
+        }
+        
+        @media (max-width: 640px) { 
+            .result-img { 
+                max-height: 420px; 
+            } 
+        }
+
+        /* Prevent layout jumps and ensure consistent sizing */
+        .testimonial-picture-card {
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Ensure images load smoothly */
+        .result-img {
+            transition: opacity 0.3s ease;
+        }
+
+        .result-img[loading] {
+            opacity: 0.8;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #F5F5DC;
             background-color: #07204A;
         }
+
+        /* HERO VIDEO WRAPPER */
+        /* Ratio-safe wrapper: prevents height=0 and removes baseline gap */
+        .hero-video{
+          width:100%;
+          max-width: 720px;      /* keep your desktop width cap if you want */
+          margin: 0 auto;
+          border-radius: 12px;
+          overflow: hidden;
+          line-height: 0;        /* kills inline baseline whitespace */
+        }
+        .hero-video #vidalytics_embed_1nEhDb05u9Um53a9{
+          position: relative !important;
+          width: 100% !important;
+          aspect-ratio: 16/9;    /* replaces inline padding-top trick */
+          padding: 0 !important; /* remove their padding shim to avoid double spacing */
+        }
+
+        /* Force the injected iframe to fill the box; remove any margins Vidalytics adds */
+        .hero-video iframe,
+        .hero-video video,
+        .hero-video .vidalytics-player,
+        .hero-video .vidalytics_container{
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          margin: 0 !important;
+          display: block !important;
+          border: 0 !important;
+        }
+
+        /* Tight mobile spacing between video and CTA */
+        @media (max-width: 768px){
+          .hero-cta { margin-top: 16px !important; }   /* adjust to taste */
+        }
+
+        /* Optional: if a spacer div exists between video and CTA on mobile, hide it */
+        @media (max-width: 768px){
+          .hero .spacer { display:none; }
+        }
+
+        /* Hide Mission Section on Mobile */
+        @media (max-width: 768px) {
+          .mission-section {
+            display: none !important;
+          }
+        }
+
+        /* Hide Who Is Sam section and 4 Pillars on Mobile */
+        @media (max-width: 768px) {
+          .about-section {
+            display: none !important;
+          }
+          .pillars-section {
+            display: none !important;
+          }
+        }
+
+        /* Testimonials Gallery CSS */
+        /* Grid */
+        .results-grid{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);   /* 2-up on mobile */
+          gap: 12px;
+        }
+        @media (min-width: 640px){
+          .results-grid{ grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        }
+        @media (min-width: 1024px){
+          .results-grid{ grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        }
+
+        /* Cards */
+        .card{
+          background: #f6f7f8;
+          border-radius: 10px;
+          padding: 8px;
+          box-shadow: 0 1px 3px rgba(0,0,0,.06);
+        }
+
+        /* Images: readable screenshots (no cropping) */
+        .result-img{
+          display:block;
+          width:100%;
+          height:auto;            /* keep text crisp */
+          object-fit: contain;    /* never crop */
+          border-radius: 8px;
+        }
+
+        /* Kill accidental margins injected by editors */
+        .results img, .results figure, .results picture{ margin:0 !important; }
 
         /* SECTION 1: HERO SECTION */
         .hero-section {
@@ -778,9 +903,25 @@
 
         .picture-testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
             margin-bottom: 2rem;
+        }
+
+        /* Tablet: 2 columns */
+        @media (min-width: 640px) {
+            .picture-testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        /* Desktop: 3 columns */
+        @media (min-width: 1024px) {
+            .picture-testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
         }
 
         .testimonial-picture-card {
@@ -789,8 +930,7 @@
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-width: 500px;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .testimonial-picture-card:hover {
@@ -800,56 +940,18 @@
 
         .testimonial-picture {
             width: 100%;
-            height: 500px;
+            height: auto;
             display: block;
             object-fit: contain;
             background-color: #f8f8f8;
+            border-radius: 8px;
         }
 
         /* Responsive breakpoints for picture testimonials */
-        @media (max-width: 1024px) {
-            .picture-testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-            .testimonial-picture-card {
-                max-width: 450px;
-            }
-            .testimonial-picture {
-                height: 450px;
-                object-fit: contain;
-            }
-        }
-
         @media (max-width: 768px) {
-            .picture-testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            .testimonial-picture-card {
-                max-width: 400px;
-            }
-            .testimonial-picture {
-                height: 400px;
-                object-fit: contain;
-            }
             .picture-testimonials-section {
                 margin-top: 3rem;
                 padding-top: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .picture-testimonials-grid {
-                grid-template-columns: repeat(1, 1fr);
-                gap: 1.5rem;
-            }
-            .testimonial-picture-card {
-                max-width: 100%;
-            }
-            .testimonial-picture {
-                height: 350px;
-                object-fit: contain;
             }
         }
 
@@ -982,24 +1084,36 @@
             line-height: 1.2;
         }
 
+        /* Testimonials Grid */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
+            margin: 2rem 0;
+            justify-items: center;
         }
 
         .testimonial-card {
-            background-color: white;
-            padding: 2rem;
+            background-color: #F6F1E9;
             border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
+            border: 1px solid rgba(91, 31, 15, .1);
+            transition: all .3s ease;
+            width: 100%;
+            max-width: 280px;
         }
 
         .testimonial-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
         }
 
         .testimonial-photo {
@@ -1406,8 +1520,18 @@
             }
 
             .testimonials-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
+                max-width: 600px;
+                margin: 2rem auto;
+            }
+            
+            .testimonial-card {
+                max-width: 250px;
+            }
+            
+            .testimonial-image {
+                height: auto;
             }
 
             .testimonial-card {
@@ -1453,34 +1577,22 @@
                 padding: 1rem 1rem !important;
             }
             
-            /* 2) Hide/zero any spacer elements below video */
-            .hero-section .spacer,
-            .hero-section .space,
-            .hero-section .divider,
-            .hero-section .separator {
-                height: 0 !important;
-                min-height: 0 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                display: none !important;
-            }
-            
-            /* 3) CRITICAL: Override video-container base margin */
-            .video-container {
-                margin: 0 auto 0 auto !important; /* NO bottom margin */
+            /* 2) Clean hero video spacing */
+            .hero-video {
+                margin: 0 auto 1rem auto !important; /* Small bottom margin for clean spacing */
                 padding: 0 !important;
                 max-width: 100% !important;
                 background: none !important;
                 box-shadow: none !important;
             }
             
-            /* 4) SHOW MOBILE BUTTON, HIDE DESKTOP BUTTON */
+            /* 3) SHOW MOBILE BUTTON, HIDE DESKTOP BUTTON */
             .mobile-cta-button {
                 display: block !important; /* Show mobile button */
                 margin: 0 auto !important; /* Center horizontally */
-                margin-top: -6rem !important; /* Large negative margin but not extreme */
+                margin-top: 0 !important; /* No negative margin - clean spacing */
                 padding: 1rem 3rem !important;
-                margin-bottom: 12rem !important; /* ULTRA EXTREME padding below button for maximum spacing */
+                margin-bottom: 2rem !important; /* Reasonable bottom spacing */
                 position: relative !important; /* Ensure button is clickable */
                 z-index: 10 !important; /* Ensure button is above other elements */
             }
@@ -1489,7 +1601,7 @@
                 display: none !important; /* Hide desktop button */
             }
             
-            /* 5) Override any parent spacing */
+            /* 4) Override any parent spacing */
             .hero-content {
                 padding: 0 !important;
                 margin: 0 !important;
@@ -1502,16 +1614,31 @@
                 padding: 0.5rem 1rem !important;
             }
             
-            /* Video wrapper: NO bottom margin on small mobile */
-            .video-container {
-                margin: 0 auto 0 auto !important; /* NO bottom margin */
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                max-width: 400px;
+                margin: 2rem auto;
             }
             
-            /* Mobile button: MEGA EXTREME NEGATIVE margin to pull button up on small mobile */
+            .testimonial-card {
+                max-width: 100%;
+            }
+            
+            .testimonial-image {
+                height: auto;
+            }
+            
+            /* Video wrapper: Clean spacing on small mobile */
+            .hero-video {
+                margin: 0 auto 0.75rem auto !important; /* Even tighter spacing */
+            }
+            
+            /* Mobile button: Clean, reasonable spacing */
             .mobile-cta-button {
-                margin-top: -7rem !important; /* Large negative margin but not extreme */
+                margin-top: 0 !important; /* No negative margin */
                 padding: 1.2rem 3rem !important;
-                margin-bottom: 10rem !important; /* ULTRA EXTREME padding below button for maximum spacing */
+                margin-bottom: 1.5rem !important; /* Clean bottom spacing */
                 position: relative !important; /* Ensure button is clickable */
                 z-index: 10 !important; /* Ensure button is above other elements */
             }
@@ -1528,29 +1655,33 @@
             <!-- Subheadline -->
             <p class="subheadline">How I've Applied One Proven Process Across Multiple Stores To Generate $7.4M+ In Sales — And How You Can Use It To Build A Brand With Retention, Stability, And Long-Term Growth.</p>
             
-            <!-- Video Container -->
-            <div class="video-container">
-                <div class="video-embed">
-                    <div id="vidalytics_embed_pUkoYhppBvA6Z4yE" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                    <script type="text/javascript">
-                    (function (v, i, d, a, l, y, t, c, s) {
-                     y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                     if (!vsl){vsl=function(u,cb){
-                     if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                     if(s.readyState){s.onreadystatechange=function(){if(s.readyState=="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                     i.getElementsByTagName("head")[0].appendChild(s);
-                     };};
-                     vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_pUkoYhppBvA6Z4yE', 'https://fast.vidalytics.com/embeds/r1IqWdUo/pUkoYhppBvA6Z4yE/');
-                    </script>
-                </div>
+            <!-- HERO VIDEO -->
+            <div class="hero-video">
+              <div id="vidalytics_embed_1nEhDb05u9Um53a9"></div>
             </div>
-            
-            <!-- MOBILE CTA Button - Positioned right below video -->
-            <button class="mobile-cta-button" onclick="openOverlay()">Apply Now</button>
-            
-            <!-- DESKTOP CTA Button -->
-            <button class="cta-button desktop-cta-button" onclick="openOverlay()">Apply Now</button>
+            <script type="text/javascript">
+            (function (v,i,d,a,l,y,t,c,s){
+              y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}
+              var vl='Loader',vli=v[y][vl],vsl=v[c][vl+'Script'],vlf=v[c][vl+'Loaded'],ve='Embed';
+              if(!vsl){vsl=function(u,cb){if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}
+                else{s.onload=function(){vlf=1;cb();};}
+                i.getElementsByTagName("head")[0].appendChild(s);
+              };}
+              vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}
+                vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});
+              });
+            })(window, document, 'Vidalytics', 'vidalytics_embed_1nEhDb05u9Um53a9', 'https://fast.vidalytics.com/embeds/r1IqWdUo/1nEhDb05u9Um53a9/');
+            </script>
+
+            <!-- CTA IMMEDIATELY AFTER -->
+            <div class="hero-cta">
+              <!-- MOBILE CTA Button - Positioned right below video -->
+              <button class="mobile-cta-button" onclick="openOverlay()">Apply Now</button>
+              
+              <!-- DESKTOP CTA Button -->
+              <button class="cta-button desktop-cta-button" onclick="openOverlay()">Apply Now</button>
+            </div>
         </div>
     </section>
 
@@ -1593,27 +1724,29 @@
                 <!-- Left Column: Content -->
                 <div class="about-content">
                     <h2 class="about-title">Who Is Sam?</h2>
-                    <p class="about-text">
-                        I started out just like most people — broke, lost, and trying to figure out how the hell to escape the 9–5 path that everyone around me said was "the only way."
-                    </p>
-                    
-                    <p class="about-text">
-                        I didn't come from money. I didn't have connections. All I had was a laptop, a drive to win, and the willingness to fail more times than I can count.
-                    </p>
-                    
-                    <p class="about-text">
-                        Through trial, error, and relentless testing, I built ecommerce brands that have now generated over <strong>$7.4M in sales.</strong><br>
-                        But more importantly — I learned how to build real businesses that last, not just stores that come and go.
-                    </p>
-                    
-                    <p class="about-text">
-                        I've been through the failed launches, the sleepless nights, the times when it felt like everything was going against me.<br>
-                        And I've also seen what happens when you push through and follow a system that works: freedom, stability, and the ability to actually build something that lasts.
-                    </p>
-                    
-                    <p class="about-text">
-                        That's why I teach what I do now — because I know what it feels like to be on the other side, and I know what it takes to get out.
-                    </p>
+                    <div class="who-paragraph">
+                        <p class="about-text">
+                            I started out just like most people — broke, lost, and trying to figure out how the hell to escape the 9–5 path that everyone around me said was "the only way."
+                        </p>
+                        
+                        <p class="about-text">
+                            I didn't come from money. I didn't have connections. All I had was a laptop, a drive to win, and the willingness to fail more times than I can count.
+                        </p>
+                        
+                        <p class="about-text">
+                            Through trial, error, and relentless testing, I built ecommerce brands that have now generated over <strong>$7.4M in sales.</strong><br>
+                            But more importantly — I learned how to build real businesses that last, not just stores that come and go.
+                        </p>
+                        
+                        <p class="about-text">
+                            I've been through the failed launches, the sleepless nights, the times when it felt like everything was going against me.<br>
+                            And I've also seen what happens when you push through and follow a system that works: freedom, stability, and the ability to actually build something that lasts.
+                        </p>
+                        
+                        <p class="about-text">
+                            That's why I teach what I do now — because I know what it feels like to be on the other side, and I know what it takes to get out.
+                        </p>
+                    </div>
                 </div>
                 
                 <!-- Right Column: Image -->
@@ -1720,223 +1853,107 @@
     </section>
 
     <!-- SECTION 5: Student Testimonials Section -->
-    <section class="student-testimonials-section">
+    <section id="testimonials" class="results student-testimonials-section">
         <div class="student-testimonials-container">
             <!-- Section Title -->
-            <h2 class="student-testimonials-title">Proof</h2>
-            
-            <!-- First Video Testimonial -->
-            <div class="testimonial-video-container">
-                <div class="video-embed">
-                    <div id="vidalytics_embed_e9YigLwP92Yw28ia" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                    <script type="text/javascript">
-                    (function (v, i, d, a, l, y, t, c, s) {
-                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                        if (!vsl){vsl=function(u,cb){
-                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                            i.getElementsByTagName("head")[0].appendChild(s);
-                        };}
-                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_e9YigLwP92Yw28ia', 'https://fast.vidalytics.com/embeds/r1IqWdUo/e9YigLwP92Yw28ia/');
-                    </script>
+            <h2 class="student-testimonials-title">Student Results</h2>
+            <!-- Testimonials Grid -->
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot1.jpg" alt="Student result 1" class="testimonial-image" loading="lazy">
                 </div>
-            </div>
-
-            <!-- Second Video Testimonial -->
-            <div class="testimonial-video-container">
-                <div class="video-embed">
-                    <div id="vidalytics_embed_9HkNe9IyORZ_2V4l" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                    <script type="text/javascript">
-                    (function (v, i, d, a, l, y, t, c, s) {
-                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                        if (!vsl){vsl=function(u,cb){
-                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                            i.getElementsByTagName("head")[0].appendChild(s);
-                        };}
-                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_9HkNe9IyORZ_2V4l', 'https://fast.vidalytics.com/embeds/r1IqWdUo/9HkNe9IyORZ_2V4l/');
-                    </script>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot2.jpg" alt="Student result 2" class="testimonial-image" loading="lazy">
                 </div>
-            </div>
-
-            <!-- Third Video Testimonial -->
-            <div class="testimonial-video-container">
-                <div class="video-embed">
-                    <div id="vidalytics_embed_KOkXGSdRoW70FvFw" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                    <script type="text/javascript">
-                    (function (v, i, d, a, l, y, t, c, s) {
-                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                        if (!vsl){vsl=function(u,cb){
-                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                            i.getElementsByTagName("head")[0].appendChild(s);
-                        };}
-                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_KOkXGSdRoW70FvFw', 'https://fast.vidalytics.com/embeds/r1IqWdUo/KOkXGSdRoW70FvFw/');
-                    </script>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot3.jpg" alt="Student result 3" class="testimonial-image" loading="lazy">
                 </div>
-            </div>
-
-            <!-- Fourth Video Testimonial -->
-            <div class="testimonial-video-container">
-                <div class="video-embed">
-                    <div id="vidalytics_embed_y4_qLwIULB_E82Qi" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                    <script type="text/javascript">
-                    (function (v, i, d, a, l, y, t, c, s) {
-                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                        if (!vsl){vsl=function(u,cb){
-                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                            i.getElementsByTagName("head")[0].appendChild(s);
-                        };}
-                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_y4_qLwIULB_E82Qi', 'https://fast.vidalytics.com/embeds/r1IqWdUo/y4_qLwIULB_E82Qi/');
-                    </script>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot4.jpg" alt="Student result 4" class="testimonial-image" loading="lazy">
                 </div>
-            </div>
-
-            <!-- Fifth Video Testimonial -->
-            <div class="testimonial-video-container">
-                <div class="video-embed">
-                    <div id="vidalytics_embed_YBYDfTCuJaBfUV5S" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                    <script type="text/javascript">
-                    (function (v, i, d, a, l, y, t, c, s) {
-                        y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                        if (!vsl){vsl=function(u,cb){
-                            if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                            if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                            i.getElementsByTagName("head")[0].appendChild(s);
-                        };}
-                        vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_YBYDfTCuJaBfUV5S', 'https://fast.vidalytics.com/embeds/r1IqWdUo/YBYDfTCuJaBfUV5S/');
-                    </script>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot5.jpg" alt="Student result 5" class="testimonial-image" loading="lazy">
                 </div>
-            </div>
-
-            <!-- Picture Testimonials Section -->
-            <div class="picture-testimonials-section">
-                <div class="picture-testimonials-grid">
-                    <!-- Picture 1 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/34E79E20-86C3-4464-9714-D2D2583431A7.jpg" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 2 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_0384.PNG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 3 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_0511.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 4 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_0528.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 5 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_4510.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 6 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_4880.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 7 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_4881.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 8 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_4882.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 9 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_5020.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 10 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_5512.PNG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 11 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_6074.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 12 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_6552.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 13 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_6708.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 14 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_6709.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 15 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_6886.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 16 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_6965.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 17 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_7760.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 18 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_8375.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 19 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_8463.PNG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 20 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_8464.PNG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 21 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_8465.PNG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 22 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_8471.PNG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 23 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_8519.JPG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
-                    
-                    <!-- Picture 24 -->
-                    <div class="testimonial-picture-card">
-                        <img src="iCloud Photos from Sam Jacobs/IMG_8638.PNG" alt="Student Testimonial" class="testimonial-picture">
-                    </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot6.jpg" alt="Student result 6" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot7.jpg" alt="Student result 7" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot8.jpg" alt="Student result 8" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot9.jpg" alt="Student result 9" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot10.jpg" alt="Student result 10" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot11.jpg" alt="Student result 11" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot12.jpg" alt="Student result 12" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot13.jpg" alt="Student result 13" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot14.jpg" alt="Student result 14" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot15.jpg" alt="Student result 15" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot16.jpg" alt="Student result 16" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot17.jpg" alt="Student result 17" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot18.jpg" alt="Student result 18" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot19.jpg" alt="Student result 19" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot20.jpg" alt="Student result 20" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot21.jpg" alt="Student result 21" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot22.jpg" alt="Student result 22" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot23.jpg" alt="Student result 23" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot24.jpg" alt="Student result 24" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot25.jpg" alt="Student result 25" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot26.jpg" alt="Student result 26" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot27.jpg" alt="Student result 27" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot28.jpg" alt="Student result 28" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot29.jpg" alt="Student result 29" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot30.jpg" alt="Student result 30" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot31.jpg" alt="Student result 31" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot32.jpg" alt="Student result 32" class="testimonial-image" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1945,7 +1962,7 @@
     <!-- Final CTA Section -->
     <section class="final-cta-section">
         <div class="final-cta-container">
-            <h2 class="final-cta-title">Ready to Build Your Brand That Lasts?</h2>
+                            <h2 class="final-cta-title">Ready to Build Your Ecommerce Store?</h2>
             <p class="final-cta-subtitle">Join the Ecom Uprise mentorship and start building a business with real staying power.</p>
             <button class="cta-button" onclick="openOverlay()">Apply Now</button>
         </div>
@@ -2004,5 +2021,7 @@
             }
         });
     </script>
+
+    <!-- Gallery script removed - using static HTML instead -->
 </body>
 </html> 
