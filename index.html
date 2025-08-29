@@ -145,6 +145,45 @@
 
         /* Kill accidental margins injected by editors */
         .results img, .results figure, .results picture{ margin:0 !important; }
+        
+        /* Mobile CTA Cards - Hidden on Desktop */
+        .mobile-cta-card {
+            display: none;
+        }
+        
+        /* Show Mobile CTA Cards only on Mobile */
+        @media (max-width: 768px) {
+            .mobile-cta-card {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem 1rem;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .mobile-cta-card .mobile-cta-button {
+                width: 100%;
+                max-width: 300px;
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+                font-weight: 600;
+                background-color: #07204A;
+                color: #F5F5DC;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            .mobile-cta-card .mobile-cta-button:hover {
+                background-color: #0a2a5a;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+        }
 
         /* SECTION 1: HERO SECTION */
         .hero-section {
@@ -1880,24 +1919,22 @@
                 <div class="testimonial-card">
                     <img src="Program Results/screenshot7.jpg" alt="Student result 7" class="testimonial-image" loading="lazy">
                 </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/screenshot8.jpg" alt="Student result 8" class="testimonial-image" loading="lazy">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/screenshot9.jpg" alt="Student result 9" class="testimonial-image" loading="lazy">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/screenshot10.jpg" alt="Student result 10" class="testimonial-image" loading="lazy">
-                </div>
+
+
+
                 <div class="testimonial-card">
                     <img src="Program Results/screenshot11.jpg" alt="Student result 11" class="testimonial-image" loading="lazy">
                 </div>
+                
+                <!-- Mobile CTA Button 1 -->
+                <div class="mobile-cta-card">
+                    <button class="mobile-cta-button" onclick="openOverlay()">Join Now</button>
+                </div>
+                
                 <div class="testimonial-card">
                     <img src="Program Results/screenshot12.jpg" alt="Student result 12" class="testimonial-image" loading="lazy">
                 </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/screenshot13.jpg" alt="Student result 13" class="testimonial-image" loading="lazy">
-                </div>
+
                 <div class="testimonial-card">
                     <img src="Program Results/screenshot14.jpg" alt="Student result 14" class="testimonial-image" loading="lazy">
                 </div>
@@ -1916,15 +1953,17 @@
                 <div class="testimonial-card">
                     <img src="Program Results/screenshot19.jpg" alt="Student result 19" class="testimonial-image" loading="lazy">
                 </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/screenshot20.jpg" alt="Student result 20" class="testimonial-image" loading="lazy">
-                </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/screenshot21.jpg" alt="Student result 21" class="testimonial-image" loading="lazy">
-                </div>
+
+
                 <div class="testimonial-card">
                     <img src="Program Results/screenshot22.jpg" alt="Student result 22" class="testimonial-image" loading="lazy">
                 </div>
+                
+                <!-- Mobile CTA Button 2 -->
+                <div class="mobile-cta-card">
+                    <button class="mobile-cta-button" onclick="openOverlay()">Start Today</button>
+                </div>
+                
                 <div class="testimonial-card">
                     <img src="Program Results/screenshot23.jpg" alt="Student result 23" class="testimonial-image" loading="lazy">
                 </div>
@@ -1949,11 +1988,54 @@
                 <div class="testimonial-card">
                     <img src="Program Results/screenshot30.jpg" alt="Student result 30" class="testimonial-image" loading="lazy">
                 </div>
-                <div class="testimonial-card">
-                    <img src="Program Results/screenshot31.jpg" alt="Student result 31" class="testimonial-image" loading="lazy">
-                </div>
+
                 <div class="testimonial-card">
                     <img src="Program Results/screenshot32.jpg" alt="Student result 32" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot33.jpg" alt="Student result 33" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot34.jpg" alt="Student result 34" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot35.jpg" alt="Student result 35" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot36.jpg" alt="Student result 36" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot37.jpg" alt="Student result 37" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot38.jpg" alt="Student result 38" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot39.jpg" alt="Student result 39" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot40.jpg" alt="Student result 40" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot41.jpg" alt="Student result 41" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot42.jpg" alt="Student result 42" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot43.jpg" alt="Student result 43" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot44.jpg" alt="Student result 44" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot45.jpg" alt="Student result 45" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot46.jpg" alt="Student result 46" class="testimonial-image" loading="lazy">
+                </div>
+                <div class="testimonial-card">
+                    <img src="Program Results/screenshot47.jpg" alt="Student result 47" class="testimonial-image" loading="lazy">
                 </div>
             </div>
         </div>
