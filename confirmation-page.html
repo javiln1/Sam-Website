@@ -249,19 +249,19 @@
                 if (countdown <= 0) {
                     clearInterval(countdownInterval);
                     // Redirect to education page
-                    window.location.href = 'Education Page Template.html';
+                    window.location.href = '/education-page.html';
                 }
             }, 1000);
             
             // Manual redirect button (in case user wants to go immediately)
             redirectButton.addEventListener('click', () => {
                 clearInterval(countdownInterval);
-                window.location.href = 'Education Page Template.html';
+                window.location.href = '/education-page.html';
             });
             
             // Set timeout for automatic redirect after 10 seconds
             setTimeout(function() {
-                window.location.href = 'Education Page Template.html';
+                window.location.href = '/education-page.html';
             }, 10000);
         });
     </script>
