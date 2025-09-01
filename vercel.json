@@ -12,5 +12,15 @@
       "destination": "/",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/confirmation-page",
+      "destination": "/confirmation-page.html"
+    },
+    {
+      "source": "/education-page",
+      "destination": "/education-page.html"
+    }
   ]
 }
