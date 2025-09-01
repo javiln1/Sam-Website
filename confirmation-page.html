@@ -236,10 +236,14 @@
     <script>
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up redirects...');
             // Auto-redirect functionality
             let countdown = 10;
             const countdownElement = document.getElementById('countdown');
             const redirectButton = document.getElementById('redirectButton');
+            
+            console.log('Countdown element:', countdownElement);
+            console.log('Redirect button:', redirectButton);
             
             // Update countdown every second
             const countdownInterval = setInterval(() => {
@@ -249,31 +253,19 @@
                 if (countdown <= 0) {
                     clearInterval(countdownInterval);
                     // Redirect to education page
-<<<<<<< HEAD
-                    window.location.href = '/education-page.html';
-=======
-                    window.location.href = 'Education Page Template.html';
->>>>>>> ffefc416aad09b0696172e29dac4d3a70e8ccacd
+                    window.location.href = 'education-page.html';
                 }
             }, 1000);
             
             // Manual redirect button (in case user wants to go immediately)
             redirectButton.addEventListener('click', () => {
                 clearInterval(countdownInterval);
-<<<<<<< HEAD
-                window.location.href = '/education-page.html';
-=======
-                window.location.href = 'Education Page Template.html';
->>>>>>> ffefc416aad09b0696172e29dac4d3a70e8ccacd
+                window.location.href = 'education-page.html';
             });
             
             // Set timeout for automatic redirect after 10 seconds
             setTimeout(function() {
-<<<<<<< HEAD
-                window.location.href = '/education-page.html';
-=======
-                window.location.href = 'Education Page Template.html';
->>>>>>> ffefc416aad09b0696172e29dac4d3a70e8ccacd
+                window.location.href = 'education-page.html';
             }, 10000);
         });
     </script>
