@@ -199,24 +199,19 @@
             <div class="success-icon">✓</div>
             
             <!-- Title -->
-            <h1 class="confirmation-title">Application Submitted!</h1>
+            <h1 class="confirmation-title">You're in — we got your application.</h1>
             
             <!-- Subtitle -->
-            <p class="confirmation-subtitle">Thank you for your application!</p>
-            
-            <!-- Main Text -->
-            <p class="confirmation-text">
-                We've received your application and our team will review it carefully. You'll hear from us within 24-48 hours with next steps.
-            </p>
+            <p class="confirmation-subtitle">If you already booked a call, you're set. If not, no stress — we'll move you to the right next step.</p>
             
             <!-- Next Steps -->
             <div class="next-steps">
-                <h3>What happens next?</h3>
+                <h3>What happens next (fast):</h3>
                 <ul>
-                    <li>We'll review your application within 24-48 hours</li>
-                    <li>If selected, you'll receive a calendar invite for a strategy call</li>
-                    <li>During the call, we'll discuss your goals and how we can help</li>
-                    <li>You'll receive our decision and next steps within 48 hours</li>
+                    <li>A team member will reach out within the next hour.</li>
+                    <li>You'll hear from us via Instagram DM, SMS, and a quick call to keep things moving.</li>
+                    <li>Booked a call already? Expect confirmations and simple prep notes.</li>
+                    <li>Haven't booked yet? We'll guide you to the best option and answer any questions.</li>
                 </ul>
             </div>
             
@@ -228,7 +223,7 @@
             
             <!-- Auto-redirect message -->
             <p class="countdown-text">
-                Redirecting automatically in <span class="countdown-number" id="countdown">5</span> seconds...
+                Redirecting automatically in <span class="countdown-number" id="countdown">10</span> seconds...
             </p>
         </div>
     </div>
@@ -253,19 +248,19 @@
                 if (countdown <= 0) {
                     clearInterval(countdownInterval);
                     // Redirect to education page
-                    window.location.href = 'education-page.html';
+                    window.location.href = '/education-page.html';
                 }
             }, 1000);
             
             // Manual redirect button (in case user wants to go immediately)
             redirectButton.addEventListener('click', () => {
                 clearInterval(countdownInterval);
-                window.location.href = 'education-page.html';
+                window.location.href = '/education-page.html';
             });
             
             // Set timeout for automatic redirect after 10 seconds
             setTimeout(function() {
-                window.location.href = 'education-page.html';
+                window.location.href = '/education-page.html';
             }, 10000);
         });
     </script>
