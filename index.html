@@ -204,20 +204,49 @@
 
         .headline {
             font-family: 'Merriweather', serif;
-            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            margin-bottom: 0.8rem;
             color: #F5F5DC;
             letter-spacing: 0.02em;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .subheadline {
-            font-size: clamp(0.95rem, 2.1vw, 1.3rem);
+            font-size: clamp(0.8rem, 1.8vw, 1.1rem);
             font-weight: 300;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             color: #F5F5DC;
             opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-step1-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            color: #F5E9C8;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-attention-text {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            color: #CFAF6E;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            text-align: center;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -226,16 +255,20 @@
         /* Mobile-specific font size adjustments */
         @media (max-width: 640px) {
             .headline {
-                font-size: 1.5rem !important; /* Smaller headline for mobile */
-                line-height: 1.2 !important;
-                margin-bottom: 0.5rem !important; /* Minimal margin on mobile */
+                font-size: 1rem !important; /* Even smaller headline for mobile */
+                line-height: 1.3 !important;
+                margin-bottom: 0.6rem !important; /* Closer to subheadline on mobile */
                 margin-top: 2rem !important; /* Add top padding above headline */
+                max-width: 95% !important; /* Better mobile width */
+                margin-left: auto !important;
+                margin-right: auto !important;
             }
             
             .subheadline {
-                font-size: 0.65rem !important; /* Even smaller font size for mobile */
-                line-height: 1.3 !important; /* Tighter line height for mobile */
-                margin-bottom: 2rem !important; /* Add spacing between subheadline and video */
+                font-size: 0.55rem !important; /* Very small font size for mobile */
+                line-height: 1.1 !important; /* Tighter line height for mobile */
+                margin-bottom: 2rem !important; /* More space below subheadline on mobile */
+                max-width: 100% !important; /* Full width for mobile */
             }
 
             .video-embed {
@@ -256,15 +289,20 @@
             
             /* Reduce headline and subheadline font sizes on tablets */
             .headline {
-                font-size: 1.6rem !important; /* Smaller headline for tablets */
-                line-height: 1.2 !important;
+                font-size: 1.1rem !important; /* Even smaller headline for tablets */
+                line-height: 1.3 !important;
+                margin-bottom: 0.7rem !important; /* Closer to subheadline on tablets */
                 margin-top: 1.5rem !important; /* Add top padding above headline */
+                max-width: 90% !important; /* Better tablet width */
+                margin-left: auto !important;
+                margin-right: auto !important;
             }
             
             .subheadline {
-                font-size: 0.75rem !important; /* Smaller font size for tablets */
-                line-height: 1.35 !important; /* Tighter line height for tablets */
-                margin-bottom: 1.5rem !important; /* Add spacing between subheadline and video */
+                font-size: 0.8rem !important; /* Smaller font size for tablets */
+                line-height: 1.2 !important; /* Tighter line height for tablets */
+                margin-bottom: 2.2rem !important; /* More space below subheadline on tablets */
+                max-width: 90% !important; /* Better tablet width */
             }
         }
 
@@ -347,6 +385,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
             margin-top: 2rem; /* Desktop spacing - will be overridden on mobile */
+            display: none; /* Hide desktop CTA button in hero section */
         }
 
         /* Mobile CTA Button - Positioned right below video */
@@ -354,16 +393,18 @@
             background-color: #CFAF6E;
             color: #07204A;
             border: none;
-            padding: 1rem 3rem;
-            font-size: 1.2rem;
-            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            font-size: 1.6rem;
+            font-weight: 700;
             font-family: 'Inter', sans-serif;
-            border-radius: 10px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(207, 175, 110, 0.3);
+            box-shadow: 0 2px 8px rgba(207, 175, 110, 0.2);
             margin: 0 auto;
             display: none; /* Hidden by default, shown on mobile */
+            width: fit-content;
+            white-space: nowrap;
         }
 
         .mobile-cta-button:hover {
@@ -376,6 +417,21 @@
             transform: translateY(0);
         }
 
+        /* Mobile CTA Text - Warning message above button */
+        .mobile-cta-text {
+            background-color: transparent;
+            color: #F5F5DC;
+            padding: 0;
+            margin: 0 auto 1.5rem auto;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 400px;
+            display: none; /* Hidden by default, shown on mobile */
+        }
+
         .cta-button:hover {
             background-color: #D9B97A;
             transform: translateY(-2px);
@@ -384,6 +440,60 @@
 
         .cta-button:active {
             transform: translateY(0);
+        }
+
+        /* Hero Typeform Section CSS - PC Only */
+        .hero-typeform-section {
+            margin-top: 3rem;
+            text-align: center;
+            display: none; /* Hidden by default, shown on PC */
+        }
+
+        .hero-typeform-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            color: #F5E9C8;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-typeform-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 400;
+            color: #F5F5DC;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .hero-typeform-wrapper {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background-color: white;
+        }
+
+        .hero-typeform-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        /* Show hero typeform on PC (769px and above) */
+        @media (min-width: 769px) {
+            .hero-typeform-section {
+                display: block;
+            }
         }
 
         /* SECTION 2: MISSION SECTION */
@@ -1030,6 +1140,62 @@
             opacity: 0.9;
         }
 
+        /* Embedded Typeform Section CSS - PC Only */
+        .embedded-typeform-section {
+            background-color: #F5F5DC;
+            padding: 80px 2rem;
+            color: #07204A;
+            text-align: center;
+            display: none; /* Hidden by default, shown on PC */
+        }
+
+        .embedded-typeform-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .embedded-typeform-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #07204A;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .embedded-typeform-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 400;
+            color: #07204A;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+
+        .embedded-typeform-wrapper {
+            width: 100%;
+            height: 800px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .embedded-typeform-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        /* Show embedded typeform on PC (769px and above) */
+        @media (min-width: 769px) {
+            .embedded-typeform-section {
+                display: block;
+            }
+        }
+
         /* Responsive breakpoints for student videos */
         @media (max-width: 1024px) {
             .student-videos-grid {
@@ -1410,6 +1576,20 @@
                 font-size: clamp(1rem, 4vw, 1.2rem);
                 line-height: 1.7;
             }
+
+            /* Show embedded typeform on mobile in last section */
+            .embedded-typeform-section {
+                display: block !important;
+            }
+            
+            .embedded-typeform-wrapper {
+                height: 500px !important; /* Smaller height for mobile */
+            }
+
+            /* Hide hero typeform on mobile */
+            .hero-typeform-section {
+                display: none !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1613,12 +1793,12 @@
             .hero-section {
                 min-height: auto !important;
                 height: auto !important;
-                padding: 1rem 1rem !important;
+                padding: 2rem 1rem 4rem 1rem !important; /* Much more padding top and bottom */
             }
             
             /* 2) Clean hero video spacing */
             .hero-video {
-                margin: 0 auto 1rem auto !important; /* Small bottom margin for clean spacing */
+                margin: 0 auto 3rem auto !important; /* Much more space below video */
                 padding: 0 !important;
                 max-width: 100% !important;
                 background: none !important;
@@ -1628,12 +1808,21 @@
             /* 3) SHOW MOBILE BUTTON, HIDE DESKTOP BUTTON */
             .mobile-cta-button {
                 display: block !important; /* Show mobile button */
-                margin: 0 auto !important; /* Center horizontally */
-                margin-top: 0 !important; /* No negative margin - clean spacing */
-                padding: 1rem 3rem !important;
-                margin-bottom: 2rem !important; /* Reasonable bottom spacing */
+                margin: 5rem auto 6rem auto !important; /* Much more aggressive spacing */
+                padding: 0.4rem 0.8rem !important; /* Slightly bigger padding */
                 position: relative !important; /* Ensure button is clickable */
                 z-index: 10 !important; /* Ensure button is above other elements */
+                width: fit-content !important; /* Button fits content */
+                font-size: 1.1rem !important; /* Consistent with rest of funnel */
+                font-weight: 600 !important; /* Consistent with rest of funnel */
+                white-space: nowrap !important; /* Force single line */
+                text-align: center !important; /* Center text */
+                border-radius: 6px !important; /* Rounded corners */
+            }
+
+            /* Show mobile CTA text on mobile */
+            .mobile-cta-text {
+                display: block !important;
             }
             
             .desktop-cta-button {
@@ -1676,7 +1865,9 @@
             /* Mobile button: Clean, reasonable spacing */
             .mobile-cta-button {
                 margin-top: 0 !important; /* No negative margin */
-                padding: 1.2rem 3rem !important;
+                padding: 0.4rem 0.8rem !important;
+                font-size: 1.1rem !important;
+                font-weight: 600 !important;
                 margin-bottom: 1.5rem !important; /* Clean bottom spacing */
                 position: relative !important; /* Ensure button is clickable */
                 z-index: 10 !important; /* Ensure button is above other elements */
@@ -1689,15 +1880,21 @@
     <section class="hero-section">
         <div class="hero-content">
             <!-- Headline -->
-            <h1 class="headline">THE PLAYBOOK FOR BRANDS THAT OUTLAST THE TRENDS</h1>
+            <h1 class="headline">Learn the exact step by step system that generated me $7.5M in sales online by 24 years old</h1>
             
             <!-- Subheadline -->
-            <p class="subheadline">How I've Applied One Proven Process Across Multiple Stores To Generate $7.4M+ In Sales — And How You Can Use It To Build A Brand With Retention, Stability, And Long-Term Growth.</p>
+            <p class="subheadline">& how you can use it to start and scale your own ecommerce business in 2025</p>
+            
+            <!-- Step 1 Title -->
+            <h3 class="hero-step1-title">Step 1: Watch Free Training Below</h3>
             
             <!-- HERO VIDEO -->
             <div class="hero-video">
               <div id="vidalytics_embed_1nEhDb05u9Um53a9"></div>
             </div>
+            
+            <!-- Attention Text -->
+            <p class="hero-attention-text">Attention: I'm looking for 5 more people to personally work with and help them build a successful ecommerce business step by step</p>
             <script type="text/javascript">
             (function (v,i,d,a,l,y,t,c,s){
               y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}
@@ -1713,13 +1910,22 @@
             })(window, document, 'Vidalytics', 'vidalytics_embed_1nEhDb05u9Um53a9', 'https://fast.vidalytics.com/embeds/r1IqWdUo/1nEhDb05u9Um53a9/');
             </script>
 
-            <!-- CTA IMMEDIATELY AFTER -->
+            <!-- EMBEDDED TYPEFORM - PC ONLY -->
+            <div class="hero-typeform-section">
+                <h3 class="hero-typeform-title">Step 2: Fill out the application below to get started</h3>
+                <div class="hero-typeform-wrapper">
+                    <iframe class="hero-typeform-iframe"
+                            src="https://form.typeform.com/to/HmnSLn3L"
+                            title="Application Form"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- MOBILE CTA Button - Only shows on mobile -->
             <div class="hero-cta">
-              <!-- MOBILE CTA Button - Positioned right below video -->
-              <button class="mobile-cta-button" onclick="openOverlay()">Apply Now</button>
-              
-              <!-- DESKTOP CTA Button -->
-              <button class="cta-button desktop-cta-button" onclick="openOverlay()">Apply Now</button>
+                <p class="mobile-cta-text">Watch the entire training and click below to apply</p>
+                <button class="mobile-cta-button" onclick="openOverlay()">Apply Now</button>
             </div>
         </div>
     </section>
@@ -2044,9 +2250,24 @@
     <!-- Final CTA Section -->
     <section class="final-cta-section">
         <div class="final-cta-container">
-                            <h2 class="final-cta-title">Ready to Build Your Ecommerce Store?</h2>
+            <h2 class="final-cta-title">Ready to Build Your Ecommerce Store?</h2>
             <p class="final-cta-subtitle">Join the Ecom Uprise mentorship and start building a business with real staying power.</p>
             <button class="cta-button" onclick="openOverlay()">Apply Now</button>
+        </div>
+    </section>
+
+    <!-- Embedded Typeform Section - PC Only -->
+    <section class="embedded-typeform-section">
+        <div class="embedded-typeform-container">
+            <h2 class="embedded-typeform-title">Apply for Ecom Uprise</h2>
+            <p class="embedded-typeform-subtitle">Fill out the application below to get started</p>
+            <div class="embedded-typeform-wrapper">
+                <iframe class="embedded-typeform-iframe"
+                        src="https://form.typeform.com/to/HmnSLn3L"
+                        title="Application Form"
+                        allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </section>
 
