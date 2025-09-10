@@ -1016,14 +1016,17 @@
 
         /* Student Testimonials Section CSS */
         .student-testimonials-section {
-            background-color: #F5F5DC;
+            background-color: #f9f9f9;
             padding: 80px 2rem;
-            color: #07204A;
+            color: #333;
         }
 
         .student-testimonials-container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
             text-align: center;
         }
 
@@ -1031,8 +1034,8 @@
             font-family: 'Merriweather', serif;
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
-            color: #07204A;
-            margin-bottom: 1rem;
+            color: #333;
+            margin-bottom: 30px;
             line-height: 1.2;
         }
 
@@ -1162,13 +1165,31 @@
             opacity: 0.9;
         }
 
-        /* Embedded Typeform Section CSS - PC Only */
+        /* Embedded Typeform Section CSS */
         .embedded-typeform-section {
             background-color: #F5F5DC;
             padding: 80px 2rem;
             color: #07204A;
             text-align: center;
-            display: none; /* Hidden by default, shown on PC */
+        }
+        
+        /* Desktop/Mobile visibility */
+        .desktop-only {
+            display: block;
+        }
+        
+        .mobile-only {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
+            }
+            
+            .mobile-only {
+                display: block;
+            }
         }
 
         .embedded-typeform-container {
@@ -1202,6 +1223,30 @@
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             background-color: white;
+        }
+        
+        /* Mobile CTA Button */
+        .mobile-cta-wrapper {
+            margin-top: 30px;
+        }
+        
+        .mobile-cta-button-large {
+            background-color: #07204A;
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(7, 32, 74, 0.3);
+        }
+        
+        .mobile-cta-button-large:hover {
+            background-color: #0a2a5a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(7, 32, 74, 0.4);
         }
 
         .embedded-typeform-iframe {
@@ -1940,6 +1985,149 @@
                 margin-bottom: 36px; 
             }
         }
+        
+        /* Mobile optimization for video grid */
+        @media (max-width: 768px) {
+            .student-results-videos-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+                max-width: 200px !important;
+                margin: 0 auto !important;
+                padding: 0 1rem !important;
+            }
+        }
+        
+        /* Mobile video wrapper - hide on desktop, show on mobile */
+        .mobile-video-wrapper {
+            display: none;
+        }
+        
+        /* Mobile optimization for video grid */
+        @media (max-width: 768px) {
+            .student-results-videos-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+                max-width: 100% !important;
+                margin: 0 auto !important;
+                padding: 0 1rem !important;
+            }
+            
+            .student-testimonials-container {
+                padding: 20px;
+            }
+        }
+        
+        /* Video title styling */
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background-color: #07204A;
+            text-align: center;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            padding: 12px 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: none;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .video-caption {
+            background: #fff;
+            padding: 12px 16px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .video-title {
+                font-size: 0.9rem;
+                margin-bottom: 8px;
+                padding: 10px 12px;
+            }
+            
+            .mobile-video-title {
+                text-align: center;
+                margin-bottom: 12px;
+                padding: 10px 12px;
+            }
+        }
+        
+        /* Image Testimonials Section */
+        .image-testimonials-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+        }
+        
+        .image-testimonials-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .image-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-image-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .testimonial-image-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .image-testimonials-section {
+                margin-top: 40px;
+                padding: 30px 15px;
+            }
+            
+            .image-testimonials-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .image-testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1956,15 +2144,26 @@
             </section>
             
             <!-- HERO VIDEO -->
-            <div style="position:relative;padding-top:56.25%;height:0;overflow:hidden;max-width:100%;">
-              <iframe src="https://fast.vidalytics.com/embeds/r1IqWdUo/1nEhDb05u9Um53a9/" 
-                      frameborder="0" allowfullscreen 
-                      style="position:absolute;top:0;left:0;width:100%;height:100%;margin:0;padding:0;border:0;">
-              </iframe>
+            <div class="hero-video lp-video">
+              <div id="vidalytics_embed_1nEhDb05u9Um53a9"></div>
             </div>
             
             <!-- Attention Text -->
             <p class="hero-attention-text">Attention: I'm looking for 5 more people to personally work with and help them build a successful ecommerce business step by step</p>
+            <script type="text/javascript">
+            (function (v,i,d,a,l,y,t,c,s){
+              y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}
+              var vl='Loader',vli=v[y][vl],vsl=v[c][vl+'Script'],vlf=v[c][vl+'Loaded'],ve='Embed';
+              if(!vsl){vsl=function(u,cb){if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}
+                else{s.onload=function(){vlf=1;cb();};}
+                i.getElementsByTagName("head")[0].appendChild(s);
+              };}
+              vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}
+                vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});
+              });
+            })(window, document, 'Vidalytics', 'vidalytics_embed_1nEhDb05u9Um53a9', 'https://fast.vidalytics.com/embeds/r1IqWdUo/1nEhDb05u9Um53a9/');
+            </script>
 
             <!-- EMBEDDED TYPEFORM - PC ONLY -->
             <div class="hero-typeform-section">
@@ -2157,33 +2356,121 @@
     <section id="testimonials" class="results student-testimonials-section">
         <div class="student-testimonials-container">
             <!-- Section Title -->
-            <h2 class="student-testimonials-title">Student Results</h2>
-            <!-- Mobile CTA Buttons -->
-            <div class="testimonials-grid">
-                <!-- Mobile CTA Button 1 -->
-                <div class="mobile-cta-card">
-                    <button class="mobile-cta-button" onclick="openOverlay()">Join Now</button>
+            <h2 class="student-testimonials-title">Student Testimonials</h2>
+            
+            <!-- Student Results Videos Grid -->
+            <div class="student-results-videos-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto;">
+                <!-- Video 1 -->
+                <div class="video-container">
+                    <h3 class="video-title">How Sean went from no sales to five figures and 100 purchases</h3>
+                    <div id="sMI9pftL3_DivaTO" style="width: 100%; position:relative; padding-top: 197.44%;"></div>
                 </div>
                 
-                <!-- Mobile CTA Button 2 -->
-                <div class="mobile-cta-card">
-                    <button class="mobile-cta-button" onclick="openOverlay()">Start Today</button>
+                <!-- Video 2 -->
+                <div class="video-container">
+                    <h3 class="video-title">How a student went from starting to $20,000 in sales in one month</h3>
+                    <div id="vidalytics_embed_KCQf0ZZQxlOmW_he" style="width: 100%; position:relative; padding-top: 177.78%;"></div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-container">
+                    <h3 class="video-title">How Arman and Google went from knowing nothing to mastering e-commerce</h3>
+                    <div id="vidalytics_embed_4yIlNQ5QJ1Njw9Va" style="width: 100%; position:relative; padding-top: 56.6%;"></div>
                 </div>
             </div>
+            
+            <!-- Image Testimonials Section -->
+            <div class="image-testimonials-section">
+                <h2 class="image-testimonials-title">Student Success Stories</h2>
+                <div class="image-testimonials-grid">
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /1.jpeg" alt="Student Testimonial 1" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /2.jpeg" alt="Student Testimonial 2" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /3.jpeg" alt="Student Testimonial 3" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /4.PNG" alt="Student Testimonial 4" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /5.PNG" alt="Student Testimonial 5" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /6.jpeg" alt="Student Testimonial 6" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /7.jpeg" alt="Student Testimonial 7" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /8.jpeg" alt="Student Testimonial 8" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /9.jpeg" alt="Student Testimonial 9" class="testimonial-image">
+                    </div>
+                    <div class="testimonial-image-card">
+                        <img src="Image Testimonials /10.jpeg" alt="Student Testimonial 10" class="testimonial-image">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop Video Script -->
+            <script type="text/javascript">
+                (function (v, i, d, a, l, y, t, c, s) {
+                    y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}
+                    t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);
+                    s.onreadystatechange=function(){if(s.readyState==4){if((s.status==200||s.status==304)){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options: sd};t();}}};s.send();
+                })(window, document, 'Vidalytics', 'sMI9pftL3_DivaTO', 'https://fast.vidalytics.com/embeds/r1IqWdUo/sMI9pftL3_DivaTO/player.settings.json');
+            </script>
+            
+            <script type="text/javascript">
+                (function (v, i, d, a, l, y, t, c, s) {
+                    y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+                    if (!vsl){vsl=function(u,cb){
+                        if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                        if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+                        i.getElementsByTagName("head")[0].appendChild(s);
+                    };}
+                    vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+                })(window, document, 'Vidalytics', 'vidalytics_embed_KCQf0ZZQxlOmW_he', 'https://fast.vidalytics.com/embeds/r1IqWdUo/KCQf0ZZQxlOmW_he/');
+            </script>
+            
+            <script type="text/javascript">
+                (function (v, i, d, a, l, y, t, c, s) {
+                    y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+                    if (!vsl){vsl=function(u,cb){
+                        if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+                        if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+                        i.getElementsByTagName("head")[0].appendChild(s);
+                    };}
+                    vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+                })(window, document, 'Vidalytics', 'vidalytics_embed_4yIlNQ5QJ1Njw9Va', 'https://fast.vidalytics.com/embeds/r1IqWdUo/4yIlNQ5QJ1Njw9Va/');
+            </script>
+            
+            
         </div>
     </section>
 
-    <!-- Embedded Typeform Section - PC Only -->
+    <!-- Embedded Typeform Section -->
     <section class="embedded-typeform-section">
         <div class="embedded-typeform-container">
             <h2 class="embedded-typeform-title">Apply for Ecom Uprise</h2>
             <p class="embedded-typeform-subtitle">Fill out the application below to get started</p>
-            <div class="embedded-typeform-wrapper">
+            
+            <!-- Desktop: Embedded Form -->
+            <div class="embedded-typeform-wrapper desktop-only">
                 <iframe class="embedded-typeform-iframe"
                         src="https://form.typeform.com/to/HmnSLn3L"
                         title="Application Form"
                         allowfullscreen>
                 </iframe>
+            </div>
+            
+            <!-- Mobile: Button -->
+            <div class="mobile-cta-wrapper mobile-only">
+                <button class="mobile-cta-button-large" onclick="openOverlay()">Apply Now</button>
             </div>
         </div>
     </section>
