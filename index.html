@@ -1895,17 +1895,51 @@
                 z-index: 10 !important; /* Ensure button is above other elements */
             }
         }
+        
+        /* Landing Page Hero Section Styles */
+        .lp-hero {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .lp-headline {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .lp-subheadline {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            line-height: 1.5;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .lp-headline { 
+                font-size: 1.6rem; 
+            }
+            .lp-subheadline { 
+                font-size: 1rem; 
+            }
+        }
     </style>
 </head>
 <body>
     <!-- SECTION 1: Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <!-- Headline -->
-            <h1 class="headline">Learn the exact step by step system that generated me $7.5M in sales online by 24 years old</h1>
-            
-            <!-- Subheadline -->
-            <p class="subheadline">& how you can use it to start and scale your own ecommerce business in 2025</p>
+            <!-- Hero Section with Headline and Subheadline -->
+            <section class="lp-hero">
+                <!-- Headline -->
+                <h1 class="lp-headline">Learn the exact step by step system that generated me $7.5M in sales online by 24 years old</h1>
+                
+                <!-- Subheadline -->
+                <p class="lp-subheadline">& how you can use it to start and scale your own ecommerce business in 2025</p>
+            </section>
             
             <!-- Step 1 Title -->
             <h3 class="hero-step1-title">Step 1: Watch Free Training Below</h3>
