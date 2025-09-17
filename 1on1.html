@@ -52,8 +52,8 @@
         /* Header */
         .header {
             background-color: #07204A;
-            padding: 2rem 0;
-            border-bottom: 1px solid #CFAF6E;
+            padding: 60px 0;
+            border-bottom: none;
         }
 
         .header-content {
@@ -64,33 +64,385 @@
         }
 
         .header-title {
-            font-family: 'Merriweather', serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: #F5F5DC;
-            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 600;
+            color: #94A3B8;
+            margin-bottom: 0;
+            letter-spacing: 1px;
+            line-height: 1.3;
         }
 
-        .header-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            color: #F5F5DC;
-            opacity: 0.8;
+        .header-main-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+            letter-spacing: 1px;
+            line-height: 1.3;
         }
 
         /* Main Content */
         .main-content {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 20px 2rem;
         }
 
         .education-section {
             background-color: #F5F5DC;
-            color: #07204A;
-            padding: 3rem;
-            border-radius: 15px;
+            color: #1E3A8A;
+            padding: 80px;
+            border-radius: 8px;
             margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 20px 0 10px 0;
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            color: #1E3A8A;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        /* Section CTA Buttons */
+        .section-cta {
+            text-align: center;
+            margin: 3rem 0 0 0;
+        }
+
+        .section-cta-button {
+            background-color: #F59E0B;
+            color: #FFFFFF;
+            border: none;
+            padding: 1.25rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            animation: fadeIn 1s ease-out 0.5s both;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-cta-button:hover {
+            background-color: #D97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Full-Screen Overlay Styles */
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* PC Version - Completely Fullscreen */
+        @media (min-width: 769px) {
+            .overlay {
+                background-color: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+            }
+            
+            .overlay-content {
+                padding: 0;
+            }
+            
+            .typeform-container {
+                width: 100vw;
+                height: 100vh;
+                max-width: none;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .typeform-embed {
+                width: 100vw;
+                height: 100vh;
+                min-height: 100vh;
+                border-radius: 0;
+            }
+        }
+
+        .overlay-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .overlay-header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1001;
+            padding: 1rem;
+        }
+
+        .close-button {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .close-button:hover {
+            background-color: white;
+            transform: scale(1.1);
+        }
+
+        .typeform-container {
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            max-height: 90vh;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .typeform-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        /* Embedded Typeform Section CSS */
+        .embedded-typeform-section {
+            background-color: #F5F5DC;
+            padding: 80px 2rem;
+            color: #07204A;
+            text-align: center;
+        }
+        
+        /* Desktop/Mobile visibility */
+        .desktop-only {
+            display: block;
+        }
+        
+        .mobile-only {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
+            }
+            
+            .mobile-only {
+                display: block;
+            }
+        }
+
+        .embedded-typeform-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .embedded-typeform-title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #07204A;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .embedded-typeform-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 400;
+            color: #07204A;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+
+        .embedded-typeform-wrapper {
+            width: 100%;
+            height: 800px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        
+        /* Mobile CTA Button */
+        .mobile-cta-wrapper {
+            margin-top: 30px;
+        }
+
+        .mobile-cta-button-large {
+            background-color: #F59E0B;
+            color: #FFFFFF;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        
+        .mobile-cta-button-large:hover {
+            background-color: #D97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .embedded-typeform-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        /* Show embedded typeform on PC (769px and above) */
+        @media (min-width: 769px) {
+            .embedded-typeform-section {
+                display: block;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .overlay-content {
+                padding: 1rem;
+            }
+
+            .overlay-header {
+                padding: 1rem;
+            }
+
+            .close-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .typeform-container {
+                border-radius: 8px;
+            }
+
+            .typeform-embed {
+                min-height: 500px;
+            }
+
+            /* Show embedded typeform on mobile in last section */
+            .embedded-typeform-section {
+                display: block !important;
+            }
+            
+            .embedded-typeform-wrapper {
+                height: 500px !important; /* Smaller height for mobile */
+            }
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+            to { 
+                opacity: 0; 
+                transform: translateY(20px);
+            }
+        }
+
+        /* Trust Indicators */
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid #E5E7EB;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #F59E0B;
+            display: block;
+        }
+
+        .trust-label {
+            font-size: 0.9rem;
+            color: #6B7280;
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background-color: #F59E0B;
+            color: #FFFFFF;
+            border: none;
+            padding: 1.25rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            margin: 3rem auto 0 auto;
+            display: block;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .cta-button:hover {
+            background-color: #D97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
         }
 
         .section-title {
@@ -653,13 +1005,63 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .header {
+                padding: 40px 0;
+            }
+            
             .main-content {
-                padding: 2rem 1rem;
+                padding: 10px 1rem;
             }
 
-            .education-section {
-                padding: 2rem;
+            /* First video section - make it larger on mobile */
+            .education-section:first-of-type {
+                padding: 20px 1rem;
                 margin-bottom: 2rem;
+            }
+
+            /* Other education sections keep normal padding */
+            .education-section:not(:first-of-type) {
+                padding: 40px 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            /* Trust indicators - horizontal layout on mobile */
+            .trust-indicators {
+                flex-direction: row;
+                gap: 1rem;
+                margin: 2rem 0;
+                padding: 1.5rem 0;
+            }
+
+            .trust-number {
+                font-size: 1.4rem;
+            }
+
+            .trust-label {
+                font-size: 0.75rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+                margin: 2rem auto 0 auto;
+            }
+
+            /* Section CTA buttons mobile styling */
+            .section-cta {
+                margin: 2rem 0 0 0;
+                padding: 0 1rem;
+            }
+
+            .section-cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+                margin: 0 auto;
+                display: block;
+                width: auto;
+                max-width: 300px;
+                position: relative;
+                z-index: 1;
             }
 
             .video-section {
@@ -726,8 +1128,8 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <h1 class="header-title">✅ Application Received</h1>
-            <p class="header-subtitle">Go through all of the videos before we speak</p>
+            <h1 class="header-title">SAM JACOBS PRESENTS...</h1>
+            <h2 class="header-main-title">HOW TO BUILD AND SCALE A 7-FIGURE ECOMMERCE BUSINESS</h2>
         </div>
     </header>
 
@@ -735,13 +1137,7 @@
     <main class="main-content">
         <!-- Introduction -->
         <section class="education-section">
-            <h2 style="text-align:center; margin: 40px 0 10px; font-size: 2.5rem; color: #FF0000; font-weight: 700;">MANDATORY WATCH</h2>
-            <p style="text-align:center; margin: 0 0 30px; font-size: 1.3rem; color: #08204A; line-height: 1.5; background-color: #F5F5DC; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Watch all of the videos below to be prepared for our call or any questions I might have for you on instagram</p>
-            
-            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
-              <div id="vidalytics_embed_TaFOOtLgGrNAGWhF" style="position:absolute; top:0; left:0; width:100%; height:100%;"></div>
-            </div>
-
+            <div id="vidalytics_embed_XWG2K0ZhupHhBqyC" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
             <script type="text/javascript">
             (function (v, i, d, a, l, y, t, c, s) {
                 y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
@@ -751,13 +1147,34 @@
                     i.getElementsByTagName("head")[0].appendChild(s);
                 };}
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-            })(window, document, 'Vidalytics', 'vidalytics_embed_TaFOOtLgGrNAGWhF', 'https://fast.vidalytics.com/embeds/r1IqWdUo/TaFOOtLgGrNAGWhF/');
+            })(window, document, 'Vidalytics', 'vidalytics_embed_XWG2K0ZhupHhBqyC', 'https://fast.vidalytics.com/embeds/r1IqWdUo/XWG2K0ZhupHhBqyC/');
             </script>
+            
+            <!-- Trust Indicators -->
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <span class="trust-number">500+</span>
+                    <span class="trust-label">Students Helped</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">$7.5M+</span>
+                    <span class="trust-label">Revenue Generated</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">24</span>
+                    <span class="trust-label">Years Old</span>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <button class="cta-button" onclick="window.location.href='#faqs'">
+                Watch All Videos Below
+            </button>
         </section>
 
         <!-- Key Principles -->
-        <section class="education-section">
-            <h2 style="text-align:center; margin: 40px 0; font-size: 2rem;"> ❓ FAQ's </h2>
+        <section id="faqs" class="education-section">
+            <h2 class="section-title">❓ FAQ's</h2>
             
             <div class="breakouts-grid" style="display:grid; grid-template-columns:1fr; gap:24px;">
                 
@@ -970,13 +1387,96 @@
                     </script>
                 </div>
             </div>
+            
+            <!-- CTA Button -->
+            <div class="section-cta">
+                <button class="section-cta-button" onclick="openOverlay()">Apply Now</button>
+            </div>
+        </section>
+
+        <!-- Educational Videos -->
+        <section class="education-section">
+            <h2 class="section-title">📚 Educational Videos</h2>
+
+            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Shopify Dropshipping Tutorial for Beginners (2025)</h3>
+            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
+              <iframe src="https://www.youtube.com/embed/jwrcUpCcINU"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+              </iframe>
+                </div>
+
+            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Launching a Shopify Business in 2025: Complete Guide</h3>
+            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
+              <iframe src="https://www.youtube.com/embed/YrqU1C2WpG8"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+              </iframe>
+                    </div>
+
+            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">How to Succeed with Dropshipping in 2025</h3>
+            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
+              <iframe src="https://www.youtube.com/embed/LzYzVTvk3yQ"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+              </iframe>
+                </div>
+
+            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Insights from 100+ Successful Dropshippers</h3>
+            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
+              <iframe src="https://www.youtube.com/embed/xBTEWLyePw0"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+              </iframe>
+                    </div>
+
+            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Finding Your First Winning Product with AI</h3>
+            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
+              <iframe src="https://www.youtube.com/embed/NEul3kvdvZQ"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+              </iframe>
+                </div>
+
+            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Building a Shopify Store with AI in 10 Minutes</h3>
+            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
+              <iframe src="https://www.youtube.com/embed/rxzK-aZ2zr0"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+              </iframe>
+                    </div>
+
+            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Facebook Ads for Shopify Dropshipping in 2025</h3>
+            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
+              <iframe src="https://www.youtube.com/embed/ymN6JSAgDIM"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+              </iframe>
+                </div>
+            
+            <!-- CTA Button -->
+            <div class="section-cta">
+                <button class="section-cta-button" onclick="openOverlay()">Apply Now</button>
+            </div>
         </section>
 
         <!-- Student Results -->
         <section class="education-section">
-            <h2 style="text-align:center; margin: 40px 0; font-size: 2rem;">
-              🎓 Student Results
-            </h2>
+            <h2 class="section-title">🎓 Student Results</h2>
 
             <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden; margin: 20px 0;">
               <iframe src="https://www.youtube.com/embed/km5OTcg9C-k"
@@ -1107,85 +1607,79 @@
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
             })(window, document, 'Vidalytics', 'vidalytics_embed_k6VOmmAs83B5zIfM', 'https://fast.vidalytics.com/embeds/r1IqWdUo/k6VOmmAs83B5zIfM/');
             </script>
+            
+            <!-- CTA Button -->
+            <div class="section-cta">
+                <button class="section-cta-button" onclick="openOverlay()">Apply Now</button>
+            </div>
         </section>
 
-        <!-- Educational Videos -->
-        <section class="education-section">
-            <h2 style="text-align:center; margin: 40px 0; font-size: 2rem;">
-              📚 Educational Videos
-            </h2>
+    <!-- Embedded Typeform Section -->
+    <section class="embedded-typeform-section">
+        <div class="embedded-typeform-container">
+            <h2 class="embedded-typeform-title">Apply for Ecom Uprise</h2>
+            <p class="embedded-typeform-subtitle">Fill out the application below to get started</p>
+            
+            <!-- Desktop: Embedded Form -->
+            <div class="embedded-typeform-wrapper desktop-only">
+                <iframe class="embedded-typeform-iframe"
+                        src="https://form.typeform.com/to/npp43Wpa"
+                        title="Application Form"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            
+            <!-- Mobile: Button -->
+            <div class="mobile-cta-wrapper mobile-only">
+                <button class="mobile-cta-button-large" onclick="openOverlay()">Apply Now</button>
+            </div>
+        </div>
+    </section>
 
-            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Shopify Dropshipping Tutorial for Beginners (2025)</h3>
-            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
-              <iframe src="https://www.youtube.com/embed/jwrcUpCcINU"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
-              </iframe>
-                </div>
+    <!-- Full-Screen Overlay -->
+    <div id="applicationOverlay" class="overlay">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <button class="close-button" onclick="closeOverlay()">&times;</button>
+            </div>
+            <div class="typeform-container">
+                <!-- TYPEFORM EMBED -->
+                <iframe class="typeform-embed"
+                        src="https://form.typeform.com/to/npp43Wpa"
+                        title="Application Form"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
 
-            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Launching a Shopify Business in 2025: Complete Guide</h3>
-            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
-              <iframe src="https://www.youtube.com/embed/YrqU1C2WpG8"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
-              </iframe>
-                    </div>
+    <script>
+        // Overlay functionality
+        function openOverlay() {
+            const overlay = document.getElementById('applicationOverlay');
+            overlay.style.display = 'block';
+            overlay.style.animation = 'fadeIn 0.3s ease';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
 
-            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">How to Succeed with Dropshipping in 2025</h3>
-            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
-              <iframe src="https://www.youtube.com/embed/LzYzVTvk3yQ"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
-              </iframe>
-                </div>
+        function closeOverlay() {
+            const overlay = document.getElementById('applicationOverlay');
+            overlay.style.animation = 'fadeOut 0.3s ease';
+            
+            // Wait for animation to complete before hiding
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }, 300);
+        }
 
-            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Insights from 100+ Successful Dropshippers</h3>
-            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
-              <iframe src="https://www.youtube.com/embed/xBTEWLyePw0"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
-              </iframe>
-                    </div>
-
-            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Finding Your First Winning Product with AI</h3>
-            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
-              <iframe src="https://www.youtube.com/embed/NEul3kvdvZQ"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
-              </iframe>
-                </div>
-
-            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Building a Shopify Store with AI in 10 Minutes</h3>
-            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
-              <iframe src="https://www.youtube.com/embed/rxzK-aZ2zr0"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
-              </iframe>
-                    </div>
-
-            <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Facebook Ads for Shopify Dropshipping in 2025</h3>
-            <div style="position:relative; width:100%; max-width:100%; height:0; padding-bottom:56.25%; overflow:hidden;">
-              <iframe src="https://www.youtube.com/embed/ymN6JSAgDIM"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                      style="position:absolute; top:0; left:0; width:100%; height:100%;">
-              </iframe>
-                </div>
-        </section>
-
-
-
-                    
+        // Close overlay when clicking outside of it
+        window.onclick = function(event) {
+            const overlay = document.getElementById('applicationOverlay');
+            if (event.target === overlay) {
+                closeOverlay();
+            }
+        }
+    </script>
+</body>
+</html>
