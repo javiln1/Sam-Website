@@ -21,6 +21,10 @@
     {
       "source": "/education-page",
       "destination": "/education-page.html"
+    },
+    {
+      "source": "/1on1",
+      "destination": "/1on1.html"
     }
   ]
 }
