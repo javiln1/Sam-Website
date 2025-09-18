@@ -141,31 +141,39 @@
             box-shadow: 0 6px 20px rgba(207, 175, 110, 0.4);
         }
 
-        /* True Full-Screen Modal */
+        /* True Full-Screen Modal with Smooth Animations */
         .fs-modal {
             position: fixed;
             inset: 0;
             width: 100vw;
             height: 100dvh;
             height: 100vh; /* fallback */
-            background: rgba(0,0,0,.92);
+            background: rgba(0,0,0,0); /* start transparent */
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 9999;
             padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+            opacity: 0; /* for cross-fade fallback */
+            transition: background 320ms cubic-bezier(.22,.61,.36,1), opacity 320ms cubic-bezier(.22,.61,.36,1);
+            will-change: background, opacity;
         }
 
         .fs-modal.is-open { 
             display: flex; 
         }
 
+        .fs-modal.is-visible {
+            background: rgba(0,0,0,.92);
+            opacity: 1;
+        }
+
         .fs-modal__frame {
             width: 100%;
             height: 100%;
             overflow: auto;
-            -webkit-overflow-scrolling: touch;
             position: relative;
+            -webkit-overflow-scrolling: touch;
         }
 
         .fs-modal__content {
@@ -174,6 +182,36 @@
             padding: 0;
             color: #fff;
             height: 100%;
+
+            /* animation start state */
+            transform: translateY(16px) scale(.98);
+            opacity: 0;
+
+            /* smooth springy easing */
+            transition: transform 360ms cubic-bezier(.22,.61,.36,1), opacity 320ms cubic-bezier(.22,.61,.36,1);
+            will-change: transform, opacity;
+        }
+
+        .fs-modal.is-visible .fs-modal__content {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        /* Closing state (optional subtle shrink) */
+        .fs-modal.is-closing .fs-modal__content {
+            transform: translateY(8px) scale(.985);
+            opacity: 0;
+        }
+        .fs-modal.is-closing { 
+            background: rgba(0,0,0,0); 
+            opacity: 0; 
+        }
+
+        /* Reduced motion: no transitions */
+        @media (prefers-reduced-motion: reduce) {
+            .fs-modal, .fs-modal__content {
+                transition: none !important;
+            }
         }
 
         .fs-modal__close {
@@ -1600,14 +1638,14 @@
                         src="https://form.typeform.com/to/npp43Wpa"
                         title="Application Form"
                         allowfullscreen>
-                </iframe>
-            </div>
-            
+              </iframe>
+                </div>
+
             <!-- Mobile: Button -->
             <div class="mobile-cta-wrapper mobile-only">
                 <button class="mobile-cta-button-large" onclick="openOverlay()">Apply Now</button>
-            </div>
-        </div>
+                    </div>
+                </div>
     </section>
 
     <!-- True Full-Screen Modal -->
@@ -1620,13 +1658,13 @@
                         src="https://form.typeform.com/to/npp43Wpa"
                         title="Application Form"
                         allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </div>
+              </iframe>
+                    </div>
+                </div>
+                    </div>
 
     <script>
-        // True Full-Screen Modal functionality
+        // True Full-Screen Modal with Smooth Animations
         (function(){
             const modal = document.getElementById('fs-modal');
             if(!modal) return;
@@ -1635,23 +1673,51 @@
             const closeBtn = modal.querySelector('.fs-modal__close');
             const openers = document.querySelectorAll('[data-open-fs-modal], .section-cta-button, .mobile-cta-button-large');
             let lastFocused;
+            let isAnimating = false;
 
             function openModal() {
+                if (isAnimating) return;
+                isAnimating = true;
+                
                 lastFocused = document.activeElement;
                 modal.classList.add('is-open');
                 document.documentElement.classList.add('fs-lock');
                 document.body.classList.add('fs-lock');
-                // focus trap start
-                setTimeout(()=>frame.focus(), 0);
                 modal.setAttribute('aria-hidden','false');
+                
+                // Force reflow to ensure display: flex is applied
+                modal.offsetHeight;
+                
+                // Add visible class to trigger animations
+                modal.classList.add('is-visible');
+                
+                // Focus trap after animation starts
+                setTimeout(()=>{
+                    frame.focus();
+                    isAnimating = false;
+                }, 50);
             }
 
             function closeModal() {
-                modal.classList.remove('is-open');
-                document.documentElement.classList.remove('fs-lock');
-                document.body.classList.remove('fs-lock');
-                modal.setAttribute('aria-hidden','true');
-                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+                if (isAnimating) return;
+                isAnimating = true;
+                
+                // Start closing animation
+                modal.classList.add('is-closing');
+                modal.classList.remove('is-visible');
+                
+                // Wait for animation to complete before removing from DOM flow
+                modal.addEventListener('transitionend', function cleanup(e) {
+                    if (e.target === modal && e.propertyName === 'opacity') {
+                        modal.removeEventListener('transitionend', cleanup);
+                        modal.classList.remove('is-open', 'is-closing');
+                        document.documentElement.classList.remove('fs-lock');
+                        document.body.classList.remove('fs-lock');
+                        modal.setAttribute('aria-hidden','true');
+                        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+                        isAnimating = false;
+                    }
+                });
             }
 
             // Legacy function for backward compatibility
@@ -1668,7 +1734,7 @@
 
             // ESC to close
             document.addEventListener('keydown', (e)=>{
-                if (!modal.classList.contains('is-open')) return;
+                if (!modal.classList.contains('is-open') || isAnimating) return;
                 if (e.key === 'Escape') closeModal();
                 // rudimentary focus trap
                 if (e.key === 'Tab') {
@@ -1682,7 +1748,7 @@
 
             // Click on backdrop closes (but not when clicking inside frame)
             modal.addEventListener('click', (e)=>{
-                if (e.target === modal) closeModal();
+                if (e.target === modal && !isAnimating) closeModal();
             });
         })();
     </script>
