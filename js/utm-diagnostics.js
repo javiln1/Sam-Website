@@ -17,7 +17,7 @@
       // Check current URL
       const currentURL = new URLSearchParams(window.location.search);
       const urlUTMs = {};
-      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(k => {
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id', 'gclid', 'fbclid', 'msclkid', 'ttclid'].forEach(k => {
         const v = currentURL.get(k);
         if (v) urlUTMs[k] = v;
       });
@@ -30,7 +30,7 @@
         console.log(`  Iframe ${i + 1}:`, iframe.src);
         const iframeURL = new URL(iframe.src);
         const iframeUTMs = {};
-        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(k => {
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id', 'gclid', 'fbclid', 'msclkid', 'ttclid'].forEach(k => {
           const v = iframeURL.searchParams.get(k);
           if (v) iframeUTMs[k] = v;
         });
@@ -38,7 +38,7 @@
       });
       
       // Check hidden inputs
-      const hiddenInputs = document.querySelectorAll('input[name^="utm_"]');
+      const hiddenInputs = document.querySelectorAll('input[name^="utm_"], input[name="gclid"], input[name="fbclid"], input[name="msclkid"], input[name="ttclid"], input[name="landing_page"], input[name="referrer"]');
       console.log("📝 Hidden UTM inputs found:", hiddenInputs.length);
       hiddenInputs.forEach(input => {
         console.log(`  ${input.name}: "${input.value}"`);

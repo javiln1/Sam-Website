@@ -2583,11 +2583,28 @@
             overlay.style.display = 'block';
             overlay.style.animation = 'fadeIn 0.3s ease';
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Track form overlay opens with UTM data
+            if (window.trackEvent) {
+                window.trackEvent('form_overlay_open', {
+                    form_type: 'typeform_application',
+                    trigger: 'cta_button',
+                    form_url: 'https://form.typeform.com/to/HmnSLn3L'
+                });
+            }
         }
 
         function closeOverlay() {
             const overlay = document.getElementById('applicationOverlay');
             overlay.style.animation = 'fadeOut 0.3s ease';
+            
+            // Track form overlay closes with UTM data
+            if (window.trackEvent) {
+                window.trackEvent('form_overlay_close', {
+                    form_type: 'typeform_application',
+                    form_url: 'https://form.typeform.com/to/HmnSLn3L'
+                });
+            }
             
             // Wait for animation to complete before hiding
             setTimeout(() => {
@@ -2609,6 +2626,68 @@
             if (event.key === 'Escape') {
                 closeOverlay();
             }
+        });
+
+        // Enhanced tracking for Ecom Uprise landing page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track CTA button clicks
+            document.querySelectorAll('button[onclick="openOverlay()"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    if (window.trackEvent) {
+                        window.trackEvent('cta_button_click', {
+                            button_text: this.textContent.trim(),
+                            button_location: this.closest('section')?.className || 'unknown',
+                            form_type: 'typeform_application'
+                        });
+                    }
+                });
+            });
+
+            // Track video interactions (if any)
+            document.querySelectorAll('video, iframe[src*="youtube"], iframe[src*="vimeo"], iframe[src*="wistia"]').forEach(media => {
+                media.addEventListener('play', function() {
+                    if (window.trackEvent) {
+                        window.trackEvent('video_play', {
+                            video_type: this.tagName.toLowerCase(),
+                            video_src: this.src || this.currentSrc || 'unknown'
+                        });
+                    }
+                });
+
+                media.addEventListener('ended', function() {
+                    if (window.trackEvent) {
+                        window.trackEvent('video_complete', {
+                            video_type: this.tagName.toLowerCase(),
+                            video_src: this.src || this.currentSrc || 'unknown'
+                        });
+                    }
+                });
+            });
+
+            // Track scroll depth
+            let maxScroll = 0;
+            window.addEventListener('scroll', function() {
+                const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+                    maxScroll = scrollPercent;
+                    if (window.trackEvent) {
+                        window.trackEvent('scroll_depth', {
+                            scroll_percent: scrollPercent
+                        });
+                    }
+                }
+            });
+
+            // Track time on page
+            const startTime = Date.now();
+            window.addEventListener('beforeunload', function() {
+                const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+                if (window.trackEvent && timeOnPage > 5) {
+                    window.trackEvent('time_on_page', {
+                        seconds: timeOnPage
+                    });
+                }
+            });
         });
     </script>
 

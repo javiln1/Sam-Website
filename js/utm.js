@@ -5,13 +5,21 @@
   
   function getUTMsFromURL() {
     const p = new URLSearchParams(window.location.search);
-    const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
+    const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_id","gclid","fbclid","msclkid","ttclid"];
     const out = {};
     let found = false;
     keys.forEach(k => {
       const v = p.get(k);
       if (v) { out[k] = v; found = true; }
     });
+    
+    // Also capture referrer and landing page
+    if (found) {
+      out.landing_page = window.location.href.split('?')[0];
+      out.referrer = document.referrer || 'direct';
+      out.timestamp = new Date().toISOString();
+    }
+    
     return found ? out : null;
   }
   
@@ -38,7 +46,7 @@
   // 2) Populate hidden inputs on DOM ready
   function populateHiddenInputs(root=document) {
     const data = read();
-    const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
+    const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_id","gclid","fbclid","msclkid","ttclid","landing_page","referrer"];
     keys.forEach(k => {
       const inputs = root.querySelectorAll(`input[name="${k}"]`);
       inputs.forEach(inp => { if (data[k]) inp.value = data[k]; });
@@ -49,7 +57,7 @@
   // 3) Append UTMs to iframe src (Typeform/others)
   function appendUTMsToIframes(root=document) {
     const data = read();
-    const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
+    const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_id","gclid","fbclid","msclkid","ttclid"];
     if (!Object.keys(data).some(k => keys.includes(k))) return;
     
     root.querySelectorAll("iframe[src]").forEach(ifr => {
@@ -72,7 +80,7 @@
   // 4) Preserve UTMs on internal navigation
   function preserveUTMsOnLinks() {
     const data = read();
-    const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
+    const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_id","gclid","fbclid","msclkid","ttclid"];
     if (!Object.keys(data).some(k => keys.includes(k))) return;
     
     document.querySelectorAll('a[href]').forEach(link => {
@@ -93,13 +101,51 @@
     });
   }
 
+  // 5) Track events with UTM data
+  function trackEvent(eventName, eventData = {}) {
+    const utmData = read();
+    const eventPayload = {
+      ...utmData,
+      ...eventData,
+      event_name: eventName,
+      timestamp: new Date().toISOString()
+    };
+
+    // Send to Google Analytics if available
+    if (typeof gtag !== 'undefined') {
+      gtag('event', eventName, eventPayload);
+    }
+
+    // Send to Facebook Pixel if available
+    if (typeof fbq !== 'undefined') {
+      fbq('track', eventName, eventPayload);
+    }
+
+    console.log('Event tracked:', eventName, eventPayload);
+  }
+
   // Expose minimal API
   window.__UTM__ = { 
     read, 
     populateHiddenInputs, 
     appendUTMsToIframes,
-    preserveUTMsOnLinks
+    preserveUTMsOnLinks,
+    trackEvent
   };
+  
+  // Make it compatible with our existing system
+  window.utmTracker = {
+    getStoredUTMParams: read,
+    getUTMAsURLString: function() {
+      const data = read();
+      const keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_id","gclid","fbclid","msclkid","ttclid"];
+      return keys.filter(k => data[k]).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`).join("&");
+    },
+    trackEvent: trackEvent
+  };
+  
+  // Make trackEvent globally available
+  window.trackEvent = trackEvent;
   
   // Initialize on DOM ready
   document.addEventListener("DOMContentLoaded", function() {
