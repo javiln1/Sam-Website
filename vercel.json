@@ -1,4 +1,6 @@
 {
+  "buildCommand": "echo 'Building static site...'",
+  "outputDirectory": ".",
   "redirects": [
     {
       "source": "/free-training",
