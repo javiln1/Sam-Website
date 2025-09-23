@@ -175,4 +175,4 @@
     childList: true,
     subtree: true
   });
-})();
+})();/* Meta Pixel deployment fix - Tue Sep 23 17:37:04 CEST 2025 */
