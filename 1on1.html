@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '637822642488175');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=637822642488175&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education Page - Ecom Uprise Free Training</title>
@@ -211,6 +228,30 @@
         @media (prefers-reduced-motion: reduce) {
             .fs-modal, .fs-modal__content {
                 transition: none !important;
+            }
+        }
+
+        /* Vidalytics Mobile Fullscreen Fix */
+        @media (max-width: 768px) {
+            /* Ensure Vidalytics videos can go fullscreen on mobile */
+            [id^="vidalytics_embed_"] {
+                -webkit-overflow-scrolling: touch;
+                overflow: visible;
+            }
+            
+            /* Fix for iOS Safari fullscreen */
+            [id^="vidalytics_embed_"] iframe {
+                -webkit-playsinline: false;
+                playsinline: false;
+                allowfullscreen: true;
+                webkitallowfullscreen: true;
+                mozallowfullscreen: true;
+                msallowfullscreen: true;
+            }
+            
+            /* Ensure video containers don't clip fullscreen */
+            .breakout-item > div[style*="position:relative"] {
+                overflow: visible !important;
             }
         }
 
@@ -1159,7 +1200,7 @@
                     i.getElementsByTagName("head")[0].appendChild(s);
                 };}
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-            })(window, document, 'Vidalytics', 'vidalytics_embed_XWG2K0ZhupHhBqyC', 'https://fast.vidalytics.com/embeds/r1IqWdUo/XWG2K0ZhupHhBqyC/');
+            })(window, document, 'Vidalytics', 'vidalytics_embed_XWG2K0ZhupHhBqyC', 'https://fast.vidalytics.com/embeds/r1IqWdUo/XWG2K0ZhupHhBqyC/?autoplay=false&muted=false&controls=true');
             </script>
             
             <!-- Trust Indicators -->
@@ -1205,7 +1246,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_pRXwoHy3EnwdX9OT', 'https://fast.vidalytics.com/embeds/r1IqWdUo/pRXwoHy3EnwdX9OT/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_pRXwoHy3EnwdX9OT', 'https://fast.vidalytics.com/embeds/r1IqWdUo/pRXwoHy3EnwdX9OT/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1224,7 +1265,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_NC3jpRlttf08iq6l', 'https://fast.vidalytics.com/embeds/r1IqWdUo/NC3jpRlttf08iq6l/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_NC3jpRlttf08iq6l', 'https://fast.vidalytics.com/embeds/r1IqWdUo/NC3jpRlttf08iq6l/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1243,7 +1284,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_Wi3toihgdDL8yDA_', 'https://fast.vidalytics.com/embeds/r1IqWdUo/Wi3toihgdDL8yDA_/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_Wi3toihgdDL8yDA_', 'https://fast.vidalytics.com/embeds/r1IqWdUo/Wi3toihgdDL8yDA_/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1262,7 +1303,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_xM6ThBaQ1FLFeHYr', 'https://fast.vidalytics.com/embeds/r1IqWdUo/xM6ThBaQ1FLFeHYr/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_xM6ThBaQ1FLFeHYr', 'https://fast.vidalytics.com/embeds/r1IqWdUo/xM6ThBaQ1FLFeHYr/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1281,7 +1322,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_SasP3RfHpEwsJMjn', 'https://fast.vidalytics.com/embeds/r1IqWdUo/SasP3RfHpEwsJMjn/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_SasP3RfHpEwsJMjn', 'https://fast.vidalytics.com/embeds/r1IqWdUo/SasP3RfHpEwsJMjn/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1300,7 +1341,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_TDl66WrV2KSA7jxk', 'https://fast.vidalytics.com/embeds/r1IqWdUo/TDl66WrV2KSA7jxk/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_TDl66WrV2KSA7jxk', 'https://fast.vidalytics.com/embeds/r1IqWdUo/TDl66WrV2KSA7jxk/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1319,7 +1360,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_fF15s5NCpoPBg8BO', 'https://fast.vidalytics.com/embeds/r1IqWdUo/fF15s5NCpoPBg8BO/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_fF15s5NCpoPBg8BO', 'https://fast.vidalytics.com/embeds/r1IqWdUo/fF15s5NCpoPBg8BO/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1338,7 +1379,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_E1PECw8ybAH0Jw4M', 'https://fast.vidalytics.com/embeds/r1IqWdUo/E1PECw8ybAH0Jw4M/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_E1PECw8ybAH0Jw4M', 'https://fast.vidalytics.com/embeds/r1IqWdUo/E1PECw8ybAH0Jw4M/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1357,7 +1398,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_hewp6vJwPslBISxR', 'https://fast.vidalytics.com/embeds/r1IqWdUo/hewp6vJwPslBISxR/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_hewp6vJwPslBISxR', 'https://fast.vidalytics.com/embeds/r1IqWdUo/hewp6vJwPslBISxR/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1376,7 +1417,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_K2KtTrg8OUH5rypJ', 'https://fast.vidalytics.com/embeds/r1IqWdUo/K2KtTrg8OUH5rypJ/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_K2KtTrg8OUH5rypJ', 'https://fast.vidalytics.com/embeds/r1IqWdUo/K2KtTrg8OUH5rypJ/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
 
@@ -1395,7 +1436,7 @@
                             i.getElementsByTagName("head")[0].appendChild(s);
                         };}
                         vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                    })(window, document, 'Vidalytics', 'vidalytics_embed_iZrlXnRUobHrUTlT', 'https://fast.vidalytics.com/embeds/r1IqWdUo/iZrlXnRUobHrUTlT/');
+                    })(window, document, 'Vidalytics', 'vidalytics_embed_iZrlXnRUobHrUTlT', 'https://fast.vidalytics.com/embeds/r1IqWdUo/iZrlXnRUobHrUTlT/?autoplay=false&muted=false&controls=true');
                     </script>
                 </div>
             </div>
@@ -1521,7 +1562,7 @@
                     i.getElementsByTagName("head")[0].appendChild(s);
                 };}
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-            })(window, document, 'Vidalytics', 'vidalytics_embed_LesDSrrrts9KX6WR', 'https://fast.vidalytics.com/embeds/r1IqWdUo/LesDSrrrts9KX6WR/');
+            })(window, document, 'Vidalytics', 'vidalytics_embed_LesDSrrrts9KX6WR', 'https://fast.vidalytics.com/embeds/r1IqWdUo/LesDSrrrts9KX6WR/?autoplay=false&muted=false&controls=true');
             </script>
 
             <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">How John went from $0-$14k in 2 weeks</h3>
@@ -1537,7 +1578,7 @@
                     i.getElementsByTagName("head")[0].appendChild(s);
                 };}
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-            })(window, document, 'Vidalytics', 'vidalytics_embed_YBYDfTCuJaBfUV5S', 'https://fast.vidalytics.com/embeds/r1IqWdUo/YBYDfTCuJaBfUV5S/');
+            })(window, document, 'Vidalytics', 'vidalytics_embed_YBYDfTCuJaBfUV5S', 'https://fast.vidalytics.com/embeds/r1IqWdUo/YBYDfTCuJaBfUV5S/?autoplay=false&muted=false&controls=true');
             </script>
 
             <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">How Matthew went from $0-$11k at 18</h3>
@@ -1553,7 +1594,7 @@
                     i.getElementsByTagName("head")[0].appendChild(s);
                 };}
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-            })(window, document, 'Vidalytics', 'vidalytics_embed_e9YigLwP92Yw28ia', 'https://fast.vidalytics.com/embeds/r1IqWdUo/e9YigLwP92Yw28ia/');
+            })(window, document, 'Vidalytics', 'vidalytics_embed_e9YigLwP92Yw28ia', 'https://fast.vidalytics.com/embeds/r1IqWdUo/e9YigLwP92Yw28ia/?autoplay=false&muted=false&controls=true');
             </script>
 
             <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">How Alec is making 100k in 90 days</h3>
@@ -1569,7 +1610,7 @@
                     i.getElementsByTagName("head")[0].appendChild(s);
                 };}
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-            })(window, document, 'Vidalytics', 'vidalytics_embed_KOkXGSdRoW70FvFw', 'https://fast.vidalytics.com/embeds/r1IqWdUo/KOkXGSdRoW70FvFw/');
+            })(window, document, 'Vidalytics', 'vidalytics_embed_KOkXGSdRoW70FvFw', 'https://fast.vidalytics.com/embeds/r1IqWdUo/KOkXGSdRoW70FvFw/?autoplay=false&muted=false&controls=true');
             </script>
 
             <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">How Ade is making $30k per day</h3>
@@ -1585,7 +1626,7 @@
                     i.getElementsByTagName("head")[0].appendChild(s);
                 };}
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-            })(window, document, 'Vidalytics', 'vidalytics_embed_u34EIAyGgclkqUW7', 'https://fast.vidalytics.com/embeds/r1IqWdUo/u34EIAyGgclkqUW7/');
+            })(window, document, 'Vidalytics', 'vidalytics_embed_u34EIAyGgclkqUW7', 'https://fast.vidalytics.com/embeds/r1IqWdUo/u34EIAyGgclkqUW7/?autoplay=false&muted=false&controls=true');
             </script>
 
             <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">How Ronel made 753k in 90 days</h3>
@@ -1601,7 +1642,7 @@
                     i.getElementsByTagName("head")[0].appendChild(s);
                 };}
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-            })(window, document, 'Vidalytics', 'vidalytics_embed_4PzkRuHHN1EK0Q8X', 'https://fast.vidalytics.com/embeds/r1IqWdUo/4PzkRuHHN1EK0Q8X/');
+            })(window, document, 'Vidalytics', 'vidalytics_embed_4PzkRuHHN1EK0Q8X', 'https://fast.vidalytics.com/embeds/r1IqWdUo/4PzkRuHHN1EK0Q8X/?autoplay=false&muted=false&controls=true');
             </script>
 
             <h3 style="text-align: center; margin: 20px 0 15px; font-size: 1.2rem; font-weight: 600; color: #F5F5DC; background-color: #08204A; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">$1,000,000 in Sales without spending on Ads</h3>
@@ -1617,7 +1658,7 @@
                     i.getElementsByTagName("head")[0].appendChild(s);
                 };}
                 vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-            })(window, document, 'Vidalytics', 'vidalytics_embed_k6VOmmAs83B5zIfM', 'https://fast.vidalytics.com/embeds/r1IqWdUo/k6VOmmAs83B5zIfM/');
+            })(window, document, 'Vidalytics', 'vidalytics_embed_k6VOmmAs83B5zIfM', 'https://fast.vidalytics.com/embeds/r1IqWdUo/k6VOmmAs83B5zIfM/?autoplay=false&muted=false&controls=true');
             </script>
             
             <!-- CTA Button -->
