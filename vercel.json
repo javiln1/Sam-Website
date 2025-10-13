@@ -17,6 +17,42 @@
   ],
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/organic-index.html"
+    },
+    {
+      "source": "/application-ads",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/application",
+      "destination": "/organic-index.html"
+    },
+    {
+      "source": "/application-ads/book",
+      "destination": "/booking-page.html"
+    },
+    {
+      "source": "/application/book",
+      "destination": "/organic-booking-page.html"
+    },
+    {
+      "source": "/application-ads/confirmation",
+      "destination": "/confirmation-page.html"
+    },
+    {
+      "source": "/application/confirmation",
+      "destination": "/organic-confirmation.html"
+    },
+    {
+      "source": "/application-ads/education",
+      "destination": "/education-page.html"
+    },
+    {
+      "source": "/application/education",
+      "destination": "/organic-education.html"
+    },
+    {
       "source": "/confirmation-page",
       "destination": "/confirmation-page.html"
     },

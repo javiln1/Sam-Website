@@ -291,19 +291,19 @@
                 if (countdown <= 0) {
                     clearInterval(countdownInterval);
                     // Redirect to education page - preserve UTM parameters
-                    window.location.href = '/application-ads/education' + window.location.search;
+                    window.location.href = '/application/education' + window.location.search;
                 }
             }, 1000);
 
             // Manual redirect button (in case user wants to go immediately)
             redirectButton.addEventListener('click', () => {
                 clearInterval(countdownInterval);
-                window.location.href = '/application-ads/education' + window.location.search;
+                window.location.href = '/application/education' + window.location.search;
             });
 
             // Set timeout for automatic redirect after 10 seconds
             setTimeout(function() {
-                window.location.href = '/application-ads/education' + window.location.search;
+                window.location.href = '/application/education' + window.location.search;
             }, 10000);
         });
     </script>
