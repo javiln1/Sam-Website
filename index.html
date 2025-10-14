@@ -2706,16 +2706,38 @@
 
         // Prevent page from auto-scrolling to bottom on load
         // This fixes the issue where Typeform iframes cause the page to scroll down
-        window.addEventListener('load', function() {
-            // Scroll to top immediately
-            window.scrollTo(0, 0);
-        });
 
-        // Also prevent scroll during page load
+        // Disable scroll restoration
         if (history.scrollRestoration) {
             history.scrollRestoration = 'manual';
         }
+
+        // Force scroll to top immediately and repeatedly
         window.scrollTo(0, 0);
+
+        // Prevent any scrolling during initial page load
+        let scrollBlocked = true;
+        const blockScroll = function(e) {
+            if (scrollBlocked) {
+                window.scrollTo(0, 0);
+            }
+        };
+
+        window.addEventListener('scroll', blockScroll, { passive: false });
+
+        // Keep blocking scroll for 1 second after page load to let iframes settle
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+            setTimeout(function() {
+                scrollBlocked = false;
+            }, 1000);
+        });
+
+        // Also force scroll to top multiple times during initial load
+        setTimeout(function() { window.scrollTo(0, 0); }, 0);
+        setTimeout(function() { window.scrollTo(0, 0); }, 100);
+        setTimeout(function() { window.scrollTo(0, 0); }, 200);
+        setTimeout(function() { window.scrollTo(0, 0); }, 500);
     </script>
 
     <!-- Gallery script removed - using static HTML instead -->

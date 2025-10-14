@@ -170,5 +170,34 @@
             <!-- Calendly inline widget end -->
         </div>
     </div>
+
+    <!-- Append UTM parameters to Calendly widget -->
+    <script>
+        // Wait for utm.js to load and Calendly widget to be ready
+        function appendUTMsToCalendly() {
+            const calendlyWidget = document.querySelector('.calendly-inline-widget');
+            if (calendlyWidget && window.utmTracker) {
+                const baseUrl = calendlyWidget.getAttribute('data-url');
+                const utmString = window.utmTracker.getUTMAsURLString();
+
+                if (utmString) {
+                    const separator = baseUrl.includes('?') ? '&' : '?';
+                    const newUrl = baseUrl + separator + utmString;
+                    calendlyWidget.setAttribute('data-url', newUrl);
+                    console.log('[Calendly] Updated with UTM parameters:', newUrl);
+                }
+            }
+        }
+
+        // Try immediately and after DOM load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', appendUTMsToCalendly);
+        } else {
+            appendUTMsToCalendly();
+        }
+
+        // Also try after a short delay to ensure utm.js is loaded
+        setTimeout(appendUTMsToCalendly, 100);
+    </script>
 </body>
 </html>
